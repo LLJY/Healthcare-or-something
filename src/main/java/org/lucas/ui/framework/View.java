@@ -1,0 +1,83 @@
+package org.lucas.ui.framework;
+
+import org.lucas.ui.framework.views.UserInput;
+import org.lucas.ui.framework.views.UserInputResult;
+
+import java.util.Dictionary;
+import java.util.Hashtable;
+
+public abstract class View {
+    protected String titleHeader;
+    protected Canvas canvas;
+    protected Color color;
+    protected String text;
+    protected Dictionary<Integer, UserInput> inputOptions = new Hashtable<>();
+
+    public View(Canvas canvas, String titleHeader, String content) {
+        this.canvas = canvas;
+        this.titleHeader = titleHeader;
+        text = content;
+        this.color = Color.WHITE; // Default color if unspecified
+    }
+
+    public View(Canvas canvas, String content, Color color) {
+        this.canvas = canvas;
+        this.text = content;
+        this.color = color;
+    }
+
+    public View(Canvas canvas, String titleHeader, String content, Color color) {
+        this.canvas = canvas;
+        this.titleHeader = titleHeader;
+        this.text = content;
+        this.color = color;
+    }
+
+    public String getText() {
+        if(text == null) return null;
+        // canvas handles the colouring
+        return text; // Add color codes
+    }
+
+    public String getTitleHeader() {
+        if(titleHeader == null) return null;
+        return TextStyle.BOLD.getAnsiCode() + titleHeader + Color.ESCAPE.getAnsiCode();
+    }
+
+    /**
+     * Any other pre-execution you may want to perform before the view goes back. Such as destroying or saving objects.
+     */
+    public void OnBackPressed() {
+    }
+
+    /**
+     * Any other pre-execution you may want to perform before the app exits. Such as saving objects.
+     */
+    public void OnApplicationExit(){}
+
+    public String getFooter() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("\nOptions:\n");
+        // it is far more efficient to use string builder compared to concatenating strings
+        for (int i = 0; i < inputOptions.size(); i++){
+            sb.append(" | ");
+            sb.append(i);
+            sb.append(": ");
+            sb.append(inputOptions.get(i).promptText());
+        }
+        return sb.toString();
+    }
+
+    public void setTitleHeader(String header) {
+        this.titleHeader = header;
+    }
+
+    public void attachUserInput(String option, UserInputResult lambda){
+        // input option 0 is reserved for the back button
+        inputOptions.put(inputOptions.size() + 1, new UserInput(option, lambda));
+    }
+
+    public Dictionary<Integer, UserInput> getInputOptions() {
+        return this.inputOptions;
+    }
+}
