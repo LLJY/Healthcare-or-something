@@ -34,6 +34,9 @@ The framework consists of the following core components:
 
 ## Example
 
+Refer to the included ExampleUi, ExampleUiController and ExampleUiSecondPage for more in-depth examples and practices.
+
+All your pages should be added as Static to Globals.Java
 ```java
 public class MyView extends UiBase {
     @Override
