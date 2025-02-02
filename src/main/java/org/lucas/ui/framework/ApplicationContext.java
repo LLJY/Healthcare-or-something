@@ -6,8 +6,13 @@ public class ApplicationContext {
         this.canvas = canvas;
     }
 
-    public void start(UiBase initialUi) {
+    /**
+     * Sets the entry point of the application.
+     * @param initialUi the UiBase class entry point
+     */
+    public void startApplication(UiBase initialUi) {
         initialUi.setCanvas(canvas);
         initialUi.ToPage(initialUi);
+        canvas.mainLoop();
     }
 }

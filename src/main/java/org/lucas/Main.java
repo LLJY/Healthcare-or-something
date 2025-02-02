@@ -16,9 +16,6 @@ public class Main {
 
         ApplicationContext applicationContext = new ApplicationContext(canvas);
 
-        applicationContext.start(Globals.exampleUi);
-
-        // call this to execute the ui framework.
-        canvas.mainLoop();
+        applicationContext.startApplication(Globals.exampleUi);
     }
 }
