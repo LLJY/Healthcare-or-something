@@ -6,12 +6,12 @@ This project provides a basic framework for building command-line interface (CLI
 
 ### Prerequisites
 
-*   Java Development Kit (JDK) installed [cite: 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
-*   IntelliJ IDEA (or any other Java IDE) [cite: 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
+*   Java Development Kit (JDK) installed [21]
+*   IntelliJ IDEA
 
 ### Project Setup in IntelliJ IDEA
 
-1.  Clone the repository: `git clone <repository_url>`
+1.  Clone the repository: `git clone https://github.com/LLJY/OOP-Project`
 2.  Open IntelliJ IDEA and select "Open or Import".
 3.  Navigate to the cloned repository and select the `pom.xml` file.
 4.  Click "Open" to import the project.
