@@ -33,12 +33,20 @@ public abstract class View {
         this.color = color;
     }
 
+    /**
+     * Gets the full text for canvas to render.
+     * @return getText or null, please handle the null case correctly.
+     */
     public String getText() {
         if(text == null) return null;
         // canvas handles the colouring
         return text; // Add color codes
     }
 
+    /**
+     * Gets the full text for the header. Header is always BOLD.
+     * @return titleHeader or null, please handle the null case correctly.
+     */
     public String getTitleHeader() {
         if(titleHeader == null) return null;
         return TextStyle.BOLD.getAnsiCode() + titleHeader + Color.ESCAPE.getAnsiCode();
@@ -55,6 +63,10 @@ public abstract class View {
      */
     public void OnApplicationExit(){}
 
+    /**
+     * Footer contains all the user input options by default, override this method otherwise.
+     * @return String representation of the user input options.
+     */
     public String getFooter() {
         StringBuilder sb = new StringBuilder();
         sb.append("\nOptions:\n");
@@ -72,6 +84,11 @@ public abstract class View {
         this.titleHeader = header;
     }
 
+    /**
+     * Attach a user input to the view/page
+     * @param option User-friendly name of the input, this will be presented to the user.
+     * @param lambda Lambda method, can be defined in-place or a method call provided.
+     */
     public void attachUserInput(String option, UserInputResult lambda){
         // input option 0 is reserved for the back button
         inputOptions.put(inputOptions.size() + 1, new UserInput(option, lambda));
