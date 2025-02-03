@@ -50,6 +50,13 @@ public class ListView extends View {
     }
 
     /**
+     * Clears the ListView
+     */
+    public void clear(){
+        this.views.clear();
+    }
+
+    /**
      * Listview overrides the getText method to provide the concatenated strings of all its children.
      * @return returns the strings that should be rendered
      */
