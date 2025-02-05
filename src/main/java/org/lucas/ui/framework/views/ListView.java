@@ -5,15 +5,43 @@ import org.lucas.ui.framework.Color;
 import org.lucas.ui.framework.View;
 
 import java.util.ArrayList;
-import java.util.Dictionary;
-import java.util.Hashtable;
 import java.util.List;
 
 public class ListView extends View {
-    private List<View> views = new ArrayList<>();
+    protected List<View> views = new ArrayList<>();
+    protected ListViewOrientation orientation = ListViewOrientation.VERTICAL;
+    protected String separator = "\t";
 
+    /**
+     * Default overload, ListView is vertical by default, separated by newline.
+     * @param canvas The base canvas.
+     * @param color Base color of the list.
+     */
     public ListView(Canvas canvas, Color color) {
         super(canvas, "", color);
+    }
+
+    /**
+     * Constructor overload that supports setting orientation, used if you want a RowView instead.
+     * @param canvas The base canvas.
+     * @param color Base color of the list.
+     * @param orientation Orientation of the list.
+     */
+    public ListView(Canvas canvas, Color color, ListViewOrientation orientation) {
+        super(canvas, "", color);
+        this.orientation = orientation;
+    }
+
+    /**
+     * Constructor overload that supports setting orientation AND separator used if you want a RowView AND with custom separation.
+     * @param canvas The base canvas.
+     * @param color Base color of the list.
+     * @param orientation Orientation of the list.
+     * @param separator custom separation between items in the row.
+     */
+    public ListView(Canvas canvas, Color color, ListViewOrientation orientation, String separator) {
+        super(canvas, "", color);
+        this.orientation = orientation;
     }
 
     /**
@@ -67,10 +95,9 @@ public class ListView extends View {
         // oh cool java can do this now?
         for (View view : views) {
             sb.append(view.getText());
-            sb.append("\n");
+            sb.append(orientation == ListViewOrientation.VERTICAL ? "\n" : separator);
         }
         // escape the ascii colour
         return sb.toString();
     }
-
 }
