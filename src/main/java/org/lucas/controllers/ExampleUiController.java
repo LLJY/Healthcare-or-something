@@ -1,4 +1,6 @@
-package org.lucas;
+package org.lucas.controllers;
+
+import org.lucas.models.ExampleRecord;
 
 public class ExampleUiController {
 

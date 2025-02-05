@@ -1,4 +1,4 @@
-package org.lucas;
+package org.lucas.pages;
 
 import org.lucas.ui.framework.Color;
 import org.lucas.ui.framework.views.TextView;

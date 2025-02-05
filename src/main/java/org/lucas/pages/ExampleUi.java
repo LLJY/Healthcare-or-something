@@ -1,5 +1,7 @@
-package org.lucas;
+package org.lucas.pages;
 
+import org.lucas.Globals;
+import org.lucas.controllers.ExampleUiController;
 import org.lucas.ui.framework.Color;
 import org.lucas.ui.framework.views.TextView;
 import org.lucas.ui.framework.UiBase;

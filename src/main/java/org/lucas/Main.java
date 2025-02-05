@@ -1,5 +1,6 @@
 package org.lucas;
 
+import org.lucas.models.ExampleRecord;
 import org.lucas.ui.framework.ApplicationContext;
 import org.lucas.ui.framework.Canvas;
 

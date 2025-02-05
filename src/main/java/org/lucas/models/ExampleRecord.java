@@ -1,4 +1,4 @@
-package org.lucas;
+package org.lucas.models;
 
 import org.lucas.util.ObjectBase;
 
