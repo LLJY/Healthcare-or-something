@@ -169,7 +169,7 @@ public class Canvas {
         // draw the footer last
         String footer = v.getFooter();
         if(footer != null){
-            footer = footer + "| q: Quit App";
+            footer = footer + "| q: Quit App\nYour input: ";
             drawText(footer, pageColor);
         }
 
