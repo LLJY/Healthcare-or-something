@@ -94,6 +94,34 @@ public abstract class View {
         inputOptions.put(inputOptions.size() + 1, new UserInput(option, lambda));
     }
 
+    /**
+     * Clears all user inputs from the view/page
+     */
+    public void clearUserInputs(){
+        var back = inputOptions.get(0);
+        // just re-create the hash table
+        inputOptions = new Hashtable<>();
+        inputOptions.put(0, back);
+    }
+
+    /**
+     * Sets the user input for the specific integer index
+     * @param id index of the id
+     * @param optionName name of the new option
+     * @param lambda lambda function to call
+     */
+    public void setUserInputByIndex(int id, String optionName, UserInputResult lambda){
+        if(id == 0){
+            // NEVER allow people to override the back button
+            return;
+        }
+        inputOptions.put(id, new UserInput(optionName, lambda));
+    }
+
+    /**
+     * Gets the full dictionary of the user inputs
+     * @return dictionary of user inputs
+     */
     public Dictionary<Integer, UserInput> getInputOptions() {
         return this.inputOptions;
     }
