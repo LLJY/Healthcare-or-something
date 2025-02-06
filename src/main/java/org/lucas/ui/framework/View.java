@@ -40,7 +40,7 @@ public abstract class View {
     public String getText() {
         if(text == null) return null;
         // canvas handles the colouring
-        return text; // Add color codes
+        return Color.ESCAPE.getAnsiCode() + color.getAnsiCode() + text + Color.ESCAPE.getAnsiCode(); // Add color codes
     }
 
     /**

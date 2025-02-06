@@ -5,13 +5,30 @@ import org.lucas.ui.framework.Color;
 import org.lucas.ui.framework.TextStyle;
 import org.lucas.ui.framework.View;
 
+/**
+ * Simple view that displays a simple text, Can add a text format as well.
+ */
 public class TextView extends View {
     public TextStyle textStyle;
 
+    /**
+     * Constructor overload which sets textStyle as none (default)
+     * @param canvas canvas to render on
+     * @param content the content of the textview
+     * @param color the color of the textview
+     */
     public TextView(Canvas canvas, String content, Color color) {
         super(canvas, content, color);
         this.textStyle = TextStyle.NONE;
     }
+
+    /**
+     * Constructor overload which allows you to set a textStyle
+     * @param canvas canvas to render on
+     * @param content the content of the textview
+     * @param color the color of the textview
+     * @param textStyle the text style of the textview
+     */
     public TextView(Canvas canvas, String content, Color color, TextStyle textStyle) {
         super(canvas, content, color);
         this.textStyle = textStyle;
@@ -23,6 +40,6 @@ public class TextView extends View {
             return super.getText();
         }
         if(super.getText() == null) return null;
-        return textStyle + super.getText() + "\u001b[0m";
+        return Color.ESCAPE.getAnsiCode() + textStyle.getAnsiCode() + color.getAnsiCode() + text + TextStyle.RESET.getAnsiCode() + Color.ESCAPE.getAnsiCode();
     }
 }
