@@ -3,9 +3,17 @@ package org.lucas.ui.framework;
 
 public abstract class UiBase {
     protected Canvas canvas;
+    // variable to keep track of canvas backstack size, so we know we really went back or not
+    protected int startPageSize;
+    // the application context
+    protected ApplicationContext context;
 
     public void setCanvas(Canvas canvas) {
         this.canvas = canvas;
+    }
+
+    public void setApplicationContext(ApplicationContext context) {
+        this.context = context;
     }
 
     /**
@@ -24,7 +32,23 @@ public abstract class UiBase {
     /**
      * Called when the back button is pressed.
      */
-    protected void OnBackPressed(){}
+    public void OnBackPressed(){
+        if(this.canvas.getBackstackSize() != context.backStack.size() + 1){
+            // we now know the backstack has been updated, tell context.
+            context.backStack.pop();
+            UiBase page = context.backStack.peek();
+
+            // the canvas will handle the backstack rendering independently. So no need to manipulate.
+            var view = page.OnCreateView();
+            page.OnViewCreated(view);
+            page.setApplicationContext(context);
+            canvas.clearCallbacks();
+            canvas.addOnBackPressedCallback(page::OnBackPressed);
+            canvas.addApplicationStopCallback(page::OnApplicationExit);
+            page.OnPageEntry();
+            canvas.setRequireRedraw(true);
+        }
+    }
 
     /**
      * Called when the application is exited.
@@ -32,16 +56,30 @@ public abstract class UiBase {
     protected void OnApplicationExit(){}
 
     /**
+     * Executes after all the view instantiation and canvas manipulation.
+     * Sets the startPageSize property to keep track of the backstack manipulation.
+     * Sort of a band-aid solution. But because of my poor hindsight, causing the weak-base phenomenon.
+     * And not wanting to make unnecessary breaking changes.
+     */
+    protected void OnPageEntry(){
+        this.startPageSize = canvas.getBackstackSize();
+    }
+
+    /**
      * Navigates to the next page
      * @param page
      */
     public void ToPage(UiBase page) {
+        // dependency inject required objects
         page.setCanvas(canvas);
+        page.setApplicationContext(context);
+        context.backStack.push(page);
         var view = page.OnCreateView();
         page.OnViewCreated(view);
         canvas.pushPage(view);
         canvas.addOnBackPressedCallback(page::OnBackPressed);
         canvas.addApplicationStopCallback(page::OnApplicationExit);
+        page.OnPageEntry();
     }
 
 }

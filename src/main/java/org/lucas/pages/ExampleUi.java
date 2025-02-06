@@ -62,6 +62,7 @@ public class ExampleUi extends UiBase {
 
     @Override
     public void OnBackPressed() {
+        super.OnBackPressed();
         // just as a test. you may leave this override empty
         System.out.println("You pressed back!");
     }

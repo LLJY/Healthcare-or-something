@@ -10,7 +10,7 @@ import java.util.Stack;
 // handles page rendering, pass it a view and it should render.
 public class Canvas {
     private Terminal terminal;
-    private Stack<View> pages;
+    private Stack<View> canvasBackstack;
     private String systemMessage = "";
     private boolean requireRedraw = false;
     protected List<IGenericCallbackInterface> backPressedCallback = new ArrayList<>();
@@ -19,9 +19,13 @@ public class Canvas {
 
     public Canvas() {
         this.terminal = new Terminal(); // Handles terminal interaction (see notes below)
-        this.pages = new Stack<>();
+        this.canvasBackstack = new Stack<>();
         // null object pattern, avoid null object reference when hitting the root null page.
-        pages.push(new NullView(this));
+        canvasBackstack.push(new NullView(this));
+    }
+
+    public int getBackstackSize() {
+        return canvasBackstack.size();
     }
 
     /**
@@ -54,7 +58,7 @@ public class Canvas {
      * @return the current page.
      */
     public View getCurrentPage() {
-        return this.pages.peek();
+        return this.canvasBackstack.peek();
     }
 
     /**
@@ -86,8 +90,8 @@ public class Canvas {
      * @param page the page to push.
      */
     public void pushPage(View page){
-        this.pages.push(page);
-        View v = pages.peek();
+        this.canvasBackstack.push(page);
+        View v = canvasBackstack.peek();
         if(v.getInputOptions().get(0) == null){
             // manually add input 0 to always be the back button
             v.inputOptions.put(0, new UserInput("Go Back", str->{
@@ -112,15 +116,23 @@ public class Canvas {
     }
 
     public void previousPage() {
-        View curPage = pages.pop();
+        View curPage = canvasBackstack.pop();
 
         // NEVER allow the initial NullView to be shown
-        if(pages.peek() instanceof NullView){
-            pages.push(curPage);
+        boolean clearCallbacks = true;
+        if(canvasBackstack.peek() instanceof NullView){
+            clearCallbacks = false;
+            canvasBackstack.push(curPage);
         }
         // call all the callbacks
         for (IGenericCallbackInterface callback : backPressedCallback) {
             callback.callback();
+        }
+        if(clearCallbacks){
+            View page = canvasBackstack.peek();
+            this.clearCallbacks();
+            this.addOnBackPressedCallback(page::OnBackPressed);
+            this.addApplicationStopCallback(page::OnApplicationExit);
         }
         setRequireRedraw(true);
     }
@@ -131,7 +143,7 @@ public class Canvas {
      */
     public void mainLoop(){
         while(!stopCanvas) {
-            View currentPage = this.pages.peek();
+            View currentPage = this.canvasBackstack.peek();
             if (currentPage instanceof NullView) {
                 continue;
             }
@@ -185,7 +197,7 @@ public class Canvas {
             return;
         }
 
-        Color pageColor = this.pages.peek().color;
+        Color pageColor = this.canvasBackstack.peek().color;
         terminal.clearScreen();
 
         // draw the header first
