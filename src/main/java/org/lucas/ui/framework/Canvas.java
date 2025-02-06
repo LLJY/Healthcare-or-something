@@ -24,6 +24,13 @@ public class Canvas {
         pages.push(new NullView(this));
     }
 
+    /**
+     * drawText overload method, that allows drawing at a specified x and y coordinate in the terminal
+     * @param text the text to draw.
+     * @param color the color of the text.
+     * @param x the x coordinate of the text.
+     * @param y the y coordinate of the text.
+     */
     public void drawText(String text, Color color, int x, int y) {
         terminal.setCursorPosition(x, y);
         terminal.setTextColor(color); // Assuming Terminal handles ANSI color codes
@@ -31,12 +38,21 @@ public class Canvas {
         terminal.resetColor(); // Reset to default color after printing
     }
 
+    /**
+     * drawText overload method, that draws on the current line of the terminal.
+     * @param text The text to draw.
+     * @param color The color of the text.
+     */
     public void drawText(String text, Color color) {
         terminal.setTextColor(color); // Assuming Terminal handles ANSI color codes
         terminal.write(text);
         terminal.resetColor(); // Reset to default color after printing
     }
 
+    /**
+     * Gets the current page from the Stack.
+     * @return the current page.
+     */
     public View getCurrentPage() {
         return this.pages.peek();
     }
@@ -57,11 +73,18 @@ public class Canvas {
         this.applicationStopCallback.add(callback);
     }
 
+    /**
+     * clears all the callbacks for the current page.
+     */
     protected void clearCallbacks(){
         this.backPressedCallback.clear();
         this.applicationStopCallback.clear();
     }
 
+    /**
+     * Pushes a new page onto the stack and tells the canvas to render it.
+     * @param page the page to push.
+     */
     public void pushPage(View page){
         this.pages.push(page);
         View v = pages.peek();
@@ -102,6 +125,10 @@ public class Canvas {
         setRequireRedraw(true);
     }
 
+    /**
+     * The program's main loop, handles logic for the user interface, including inputs, rudimentary error handling and input validation
+     * As well as gracefully stopping the application.
+     */
     public void mainLoop(){
         while(!stopCanvas) {
             View currentPage = this.pages.peek();
@@ -148,6 +175,10 @@ public class Canvas {
         System.out.println("Bye! Have a Nice Day!");
     }
 
+    /**
+     * Renders the view into the terminal
+     * @param v the view to render
+     */
     public void renderView(View v) {
         if(v instanceof NullView){
             //drawText("The end of the backstack has been reached, this should NOT happen.", Color.WHITE);
@@ -183,6 +214,10 @@ public class Canvas {
         this.setRequireRedraw(false);
     }
 
+    /**
+     * Gets the terminal object.
+     * @return terminal object.
+     */
     public Terminal getTerminal() {
         return terminal;
     }

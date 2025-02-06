@@ -1,5 +1,8 @@
 package org.lucas.ui.framework;
 
+/**
+ * Defines the application start point. And gracefully starts the application.
+ */
 public class ApplicationContext {
     protected Canvas canvas;
     public ApplicationContext(Canvas canvas) {

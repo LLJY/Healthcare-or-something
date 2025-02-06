@@ -1,5 +1,8 @@
 package org.lucas.ui.framework;
 
+/**
+ * Simple enum that contains the text style ANSI codes.
+ */
 public enum TextStyle {
     RESET("\u001b[0m"),
     BOLD("\u001b[1m"),          // Bold

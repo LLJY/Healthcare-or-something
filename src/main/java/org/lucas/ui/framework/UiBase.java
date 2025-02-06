@@ -1,5 +1,6 @@
 package org.lucas.ui.framework;
 
+
 public abstract class UiBase {
     protected Canvas canvas;
 
@@ -20,8 +21,14 @@ public abstract class UiBase {
      */
     public abstract void OnViewCreated(View parentView);
 
+    /**
+     * Called when the back button is pressed.
+     */
     protected void OnBackPressed(){}
 
+    /**
+     * Called when the application is exited.
+     */
     protected void OnApplicationExit(){}
 
     /**

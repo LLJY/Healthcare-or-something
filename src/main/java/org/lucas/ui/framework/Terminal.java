@@ -2,6 +2,9 @@ package org.lucas.ui.framework;
 
 import java.util.Scanner;
 
+/**
+ * A generic class for terminal access, should not be accessed manually, only through the Canvas class.
+ */
 public class Terminal {
     Scanner scanner = new Scanner(System.in);
     // In the real implementation, use ANSI escape codes:

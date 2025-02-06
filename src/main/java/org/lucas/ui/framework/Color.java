@@ -1,5 +1,8 @@
 package org.lucas.ui.framework;
 
+/**
+ * Simple enum that contains the color ANSI codes.
+ */
 public enum Color {
     BLACK("\u001b[30m"),
     RED("\u001b[31m"),

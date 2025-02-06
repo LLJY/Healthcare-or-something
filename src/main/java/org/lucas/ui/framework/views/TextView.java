@@ -34,6 +34,10 @@ public class TextView extends View {
         this.textStyle = textStyle;
     }
 
+    /**
+     * Textview is a simple view that includes Text styling.
+     * @return Returns a printable String with formatting. null if otherwise, please handle the null case gracefully.
+     */
     @Override
     public String getText() {
         if(textStyle == TextStyle.NONE){

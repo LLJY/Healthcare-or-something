@@ -13,6 +13,12 @@ public abstract class View {
     protected String text;
     protected Dictionary<Integer, UserInput> inputOptions = new Hashtable<>();
 
+    /**
+     * Constructor overload that specifies a header and content.
+     * @param canvas canvas to render on
+     * @param titleHeader header of the view (always bold by default)
+     * @param content content of the view
+     */
     public View(Canvas canvas, String titleHeader, String content) {
         this.canvas = canvas;
         this.titleHeader = titleHeader;
@@ -20,12 +26,25 @@ public abstract class View {
         this.color = Color.WHITE; // Default color if unspecified
     }
 
+    /**
+     * Constructor overload that defines color of the view.
+     * @param canvas canvas to render on.
+     * @param content content of the view.
+     * @param color color of the view.
+     */
     public View(Canvas canvas, String content, Color color) {
         this.canvas = canvas;
         this.text = content;
         this.color = color;
     }
 
+    /**
+     * Constructor overload that defines both the color and the header.
+     * @param canvas canvas to render on.
+     * @param titleHeader header of the view.
+     * @param content content of the view.
+     * @param color color of the view.
+     */
     public View(Canvas canvas, String titleHeader, String content, Color color) {
         this.canvas = canvas;
         this.titleHeader = titleHeader;
@@ -80,6 +99,10 @@ public abstract class View {
         return sb.toString();
     }
 
+    /**
+     * Sets the title header of the view.
+     * @param header title header
+     */
     public void setTitleHeader(String header) {
         this.titleHeader = header;
     }
