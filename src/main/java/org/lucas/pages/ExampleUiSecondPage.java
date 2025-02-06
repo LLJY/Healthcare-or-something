@@ -34,6 +34,7 @@ public class ExampleUiSecondPage extends UiBase {
 
     @Override
     public void OnBackPressed() {
+        super.OnBackPressed();
         // just as a test.
         System.out.println("SDFSDFDSFSDFDSFDSFDSDFDSFSDFDSFDSF");
     }
