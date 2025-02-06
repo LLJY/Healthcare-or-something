@@ -4,31 +4,65 @@ package org.lucas.models;
     PATIENT, DOCTOR
 }*/
 
-public abstract class User {
-    private String userID;
-    private String userName;
+import org.lucas.util.ObjectBase;
+
+public abstract class User implements ObjectBase {
+    private String id;
+    private String loginName;
     private String password;
     private String email;
     private String gender;
 
-    public User (String userID, String userName, String password, String email, String gender) {
-        this.userID = userID;
-        this.userName = userName;
+    public User(String id, String loginName, String password, String email, String gender) {
+        this.id = id;
+        this.loginName = loginName;
         this.password = password;
         this.email = email;
         this.gender = gender;
     }
 
-    public String getUserID() { return userID; }
-    public String getUserName() { return userName; }
-    public String getPassword() { return password; }
-    public String getEmail() { return email; }
-    public String getGender() { return gender; }
+    public String getId() {
+        return id;
+    }
 
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getLoginName() {
+        return loginName;
+    }
+
+    public void setLoginName(String loginName) {
+        this.loginName = loginName;
+    }
+
+    public boolean checkPassword(String password) {
+        // todo research password hashing
+        return this.password.equals(password);
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    /**
+     * Prints user info as a pretty JSON string
+     */
     public void displayUserInfo(){
-        System.out.println("UserID: " + userID);
-        System.out.println("Username: " + userName);
-        System.out.println("Email: " + email);
+        System.out.println(this.toPrettyJsonString());
     }
 }
 
