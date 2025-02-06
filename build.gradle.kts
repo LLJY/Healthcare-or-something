@@ -14,6 +14,7 @@ dependencies {
     testImplementation(platform("org.junit:junit-bom:5.10.0"))
     testImplementation("org.junit.jupiter:junit-jupiter")
     implementation("com.google.code.gson:gson:2.12.1")
+    implementation ("com.squareup.okhttp3:okhttp:4.9.3")
 }
 
 application { // Configure the main class for the application plugin
