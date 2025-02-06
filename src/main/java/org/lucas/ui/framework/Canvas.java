@@ -1,5 +1,6 @@
 package org.lucas.ui.framework;
 
+import org.lucas.ui.framework.views.NullView;
 import org.lucas.ui.framework.views.UserInput;
 
 import java.util.ArrayList;
