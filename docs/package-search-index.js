@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"org.lucas"},{"l":"org.lucas.controllers"},{"l":"org.lucas.models"},{"l":"org.lucas.pages"},{"l":"org.lucas.ui.framework"},{"l":"org.lucas.ui.framework.exception"},{"l":"org.lucas.ui.framework.views"},{"l":"org.lucas.util"}];updateSearchResults();
