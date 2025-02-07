@@ -45,7 +45,7 @@ tasks.register<JavaExec>("runJar") {
 
     // Optional: Set JVM arguments if needed
     // jvmArgs = listOf("-Xmx256m")
-
+    jvmArgs = listOf("--add-opens", "java.base/java.time=ALL-UNNAMED")
     // Optional: Set standard input if you need to pass input to the process
     standardInput = System.`in`
 }
