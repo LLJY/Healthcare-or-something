@@ -1,4 +1,5 @@
 package org.lucas.pages;
+import org.lucas.Globals;
 import org.lucas.util.ZoomCreator;
 import org.lucas.util.ZoomOAuth;
 import org.lucas.ui.framework.Color;
@@ -6,10 +7,8 @@ import org.lucas.ui.framework.UiBase;
 import org.lucas.ui.framework.View;
 import org.lucas.ui.framework.views.ListView;
 import org.lucas.ui.framework.views.TextView;
-import org.lucas.util.ZoomOAuth;
 
 import java.io.IOException;
-import java.util.Scanner;
 
 public class ZoomMeetingPage extends UiBase {
 
@@ -45,7 +44,7 @@ public class ZoomMeetingPage extends UiBase {
                 // Output the join URL
                 System.out.println("Zoom Meeting URL: " + joinUrl);
                 // Kaiser Page
-                // ToPage();
+                ToPage(Globals.appointmentInfoPage);
             } catch (IOException e) {
                 e.printStackTrace();
             }

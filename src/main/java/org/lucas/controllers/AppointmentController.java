@@ -2,6 +2,7 @@ package org.lucas.controllers;
 import com.google.gson.reflect.TypeToken;
 import org.lucas.Globals;
 import org.lucas.models.*;
+import org.lucas.models.enums.DoctorType;
 import org.lucas.util.Util;
 
 import java.io.BufferedReader;
@@ -17,11 +18,11 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Random;
 
-public class AppointmentManager {
+public class AppointmentController {
     private static List<Appointment> appointments = new ArrayList<>();
     private static final String fileName = "appointments.txt";
 
-    public AppointmentManager(){
+    public AppointmentController(){
         //me thinks should add the read file logic here
         // no- never never put error prone code inside the constructor... - Lucas
     }
@@ -112,7 +113,7 @@ public class AppointmentManager {
     }
 
     public void setAppointments(List<Appointment> appointments){
-        AppointmentManager.appointments = appointments;
+        AppointmentController.appointments = appointments;
     }
 
     public List<Appointment> getAppointments(){
