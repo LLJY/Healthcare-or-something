@@ -1,5 +1,10 @@
 package org.lucas.util;
 
+import org.lucas.models.Appointment;
+
+import java.lang.reflect.Type;
+import java.util.List;
+
 import static org.lucas.Globals.gson;
 
 public class Util {
@@ -12,7 +17,11 @@ public class Util {
      * @return Object of type T
      * @param <T> Type T of the object
      */
-    static<T> T fromJsonString(String jsonString, Class<T> clazz){
+    public static<T> T fromJsonString(String jsonString, Class<T> clazz){
         return gson.fromJson(jsonString, clazz);
+    }
+
+    public static <T> T fromJsonString(String jsonString, Type type) {
+        return gson.fromJson(jsonString, type); // Gson's fromJson method has an overload that takes Type
     }
 }
