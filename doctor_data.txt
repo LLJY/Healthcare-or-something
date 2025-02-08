@@ -1,0 +1,24 @@
+[
+  {
+    "specialisation": "GP",
+    "type": "GENERAL_PRACTICE",
+    "license_number": "L12345",
+    "id": "D001",
+    "login_name": "doctor1",
+    "name": "Dr. Lim Tze Kai",
+    "password": "docpass",
+    "email": "jane.smith@clinic.com",
+    "gender": "Female"
+  },
+  {
+    "specialisation": "Pediatrics",
+    "type": "SPECIALIST",
+    "license_number": "L67890",
+    "id": "D002",
+    "login_name": "doctor2",
+    "name": "Dr. David Lee",
+    "password": "securedoc",
+    "email": "david.lee@clinic.com",
+    "gender": "Male"
+  }
+]

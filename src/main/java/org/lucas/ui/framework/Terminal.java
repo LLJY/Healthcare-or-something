@@ -39,7 +39,10 @@ public class Terminal {
     }
 
     protected String getUserInput() {
-        scanner = new Scanner(System.in);
-        return scanner.nextLine();
+        try {
+            return scanner.nextLine();
+        }catch(Exception e) {
+            return null;
+        }
     }
 }

@@ -9,13 +9,15 @@ import org.lucas.util.ObjectBase;
 public abstract class User implements ObjectBase {
     private String id;
     private String loginName;
+    private String name;
     private String password;
     private String email;
     private String gender;
 
-    public User(String id, String loginName, String password, String email, String gender) {
+    public User(String id, String loginName, String name, String password, String email, String gender) {
         this.id = id;
         this.loginName = loginName;
+        this.name = name;
         this.password = password;
         this.email = email;
         this.gender = gender;
@@ -32,6 +34,11 @@ public abstract class User implements ObjectBase {
     public String getLoginName() {
         return loginName;
     }
+
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {this.name = name; }
 
     public void setLoginName(String loginName) {
         this.loginName = loginName;
@@ -56,6 +63,18 @@ public abstract class User implements ObjectBase {
 
     public void setGender(String gender) {
         this.gender = gender;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id='" + id + '\'' +
+                ", loginName='" + loginName + '\'' +
+                ", name='" + name + '\'' +
+                ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
+                ", gender='" + gender + '\'' +
+                '}';
     }
 
     /**

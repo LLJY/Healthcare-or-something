@@ -21,4 +21,6 @@ public interface ObjectBase {
     default String toPrettyJsonString(){
         return gsonPrettyPrint.toJson(this);
     }
+
+    default void printContents(){System.out.println(toPrettyJsonString());}
 }

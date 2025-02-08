@@ -157,7 +157,7 @@ public class Canvas {
             try{
                 responseInt = Integer.parseInt(response);
             }catch (Exception e){
-                if(!response.isEmpty() && response.toLowerCase().charAt(0) == 'q'){
+                if(response != null && !response.isEmpty() && response.toLowerCase().charAt(0) == 'q'){
                     stopCanvas = true;
                     break;
                 }

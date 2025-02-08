@@ -1,0 +1,552 @@
+[
+  {
+    "patient": {
+      "medical_history": "History 1",
+      "allergies": "Allergies 1",
+      "date_of_birth": {
+        "date": {
+          "year": 1976,
+          "month": 2,
+          "day": 9
+        },
+        "time": {
+          "hour": 0,
+          "minute": 32,
+          "second": 47,
+          "nano": 522039400
+        }
+      },
+      "patient_consent": true,
+      "address": "Address 1",
+      "next_of_kin_name": "Next of Kin 1",
+      "id": "P1",
+      "login_name": "patient1",
+      "name": "Patient 1",
+      "password": "password",
+      "email": "patient1@example.com",
+      "gender": "Male"
+    },
+    "reason": "Reason 1",
+    "appointment_time": {
+      "date": {
+        "year": 2025,
+        "month": 11,
+        "day": 30
+      },
+      "time": {
+        "hour": 3,
+        "minute": 12,
+        "second": 47,
+        "nano": 523086500
+      }
+    },
+    "doctor": {
+      "specialisation": "Specialisation 8",
+      "type": "SPECIALIST",
+      "license_number": "License 351",
+      "id": "D8",
+      "login_name": "doctor3",
+      "name": "Doctor 7",
+      "password": "password",
+      "email": "doctor9@example.com",
+      "gender": "Male"
+    },
+    "appointment_status": "DECLINED",
+    "doctor_notes": "Notes 1"
+  },
+  {
+    "patient": {
+      "medical_history": "History 2",
+      "allergies": "Allergies 2",
+      "date_of_birth": {
+        "date": {
+          "year": 2005,
+          "month": 2,
+          "day": 9
+        },
+        "time": {
+          "hour": 0,
+          "minute": 32,
+          "second": 47,
+          "nano": 523086500
+        }
+      },
+      "patient_consent": false,
+      "address": "Address 2",
+      "next_of_kin_name": "Next of Kin 2",
+      "id": "P2",
+      "login_name": "patient2",
+      "name": "Patient 2",
+      "password": "password",
+      "email": "patient2@example.com",
+      "gender": "Male"
+    },
+    "reason": "Reason 2",
+    "appointment_time": {
+      "date": {
+        "year": 2026,
+        "month": 1,
+        "day": 17
+      },
+      "time": {
+        "hour": 11,
+        "minute": 20,
+        "second": 47,
+        "nano": 523086500
+      }
+    },
+    "doctor": {
+      "specialisation": "Specialisation 7",
+      "type": "GENERAL_PRACTICE",
+      "license_number": "License 759",
+      "id": "D8",
+      "login_name": "doctor3",
+      "name": "Doctor 8",
+      "password": "password",
+      "email": "doctor7@example.com",
+      "gender": "Female"
+    },
+    "appointment_status": "CHAOKENG",
+    "doctor_notes": "Notes 2"
+  },
+  {
+    "patient": {
+      "medical_history": "History 3",
+      "allergies": "Allergies 3",
+      "date_of_birth": {
+        "date": {
+          "year": 1954,
+          "month": 2,
+          "day": 9
+        },
+        "time": {
+          "hour": 0,
+          "minute": 32,
+          "second": 47,
+          "nano": 523086500
+        }
+      },
+      "patient_consent": true,
+      "address": "Address 3",
+      "next_of_kin_name": "Next of Kin 3",
+      "id": "P3",
+      "login_name": "patient3",
+      "name": "Patient 3",
+      "password": "password",
+      "email": "patient3@example.com",
+      "gender": "Male"
+    },
+    "reason": "Reason 3",
+    "appointment_time": {
+      "date": {
+        "year": 2025,
+        "month": 3,
+        "day": 28
+      },
+      "time": {
+        "hour": 2,
+        "minute": 35,
+        "second": 47,
+        "nano": 523086500
+      }
+    },
+    "doctor": {
+      "specialisation": "Specialisation 3",
+      "type": "SPECIALIST",
+      "license_number": "License 892",
+      "id": "D5",
+      "login_name": "doctor1",
+      "name": "Doctor 6",
+      "password": "password",
+      "email": "doctor1@example.com",
+      "gender": "Female"
+    },
+    "appointment_status": "DECLINED",
+    "doctor_notes": "Notes 3"
+  },
+  {
+    "patient": {
+      "medical_history": "History 4",
+      "allergies": "Allergies 4",
+      "date_of_birth": {
+        "date": {
+          "year": 2019,
+          "month": 2,
+          "day": 9
+        },
+        "time": {
+          "hour": 0,
+          "minute": 32,
+          "second": 47,
+          "nano": 523086500
+        }
+      },
+      "patient_consent": true,
+      "address": "Address 4",
+      "next_of_kin_name": "Next of Kin 4",
+      "id": "P4",
+      "login_name": "patient4",
+      "name": "Patient 4",
+      "password": "password",
+      "email": "patient4@example.com",
+      "gender": "Male"
+    },
+    "reason": "Reason 4",
+    "appointment_time": {
+      "date": {
+        "year": 2025,
+        "month": 4,
+        "day": 7
+      },
+      "time": {
+        "hour": 13,
+        "minute": 1,
+        "second": 47,
+        "nano": 523086500
+      }
+    },
+    "doctor": {
+      "specialisation": "Specialisation 1",
+      "type": "SPECIALIST",
+      "license_number": "License 585",
+      "id": "D8",
+      "login_name": "doctor5",
+      "name": "Doctor 10",
+      "password": "password",
+      "email": "doctor8@example.com",
+      "gender": "Male"
+    },
+    "appointment_status": "CHAOKENG",
+    "doctor_notes": "Notes 4"
+  },
+  {
+    "patient": {
+      "medical_history": "History 5",
+      "allergies": "Allergies 5",
+      "date_of_birth": {
+        "date": {
+          "year": 1960,
+          "month": 2,
+          "day": 9
+        },
+        "time": {
+          "hour": 0,
+          "minute": 32,
+          "second": 47,
+          "nano": 523086500
+        }
+      },
+      "patient_consent": true,
+      "address": "Address 5",
+      "next_of_kin_name": "Next of Kin 5",
+      "id": "P5",
+      "login_name": "patient5",
+      "name": "Patient 5",
+      "password": "password",
+      "email": "patient5@example.com",
+      "gender": "Female"
+    },
+    "reason": "Reason 5",
+    "appointment_time": {
+      "date": {
+        "year": 2025,
+        "month": 2,
+        "day": 24
+      },
+      "time": {
+        "hour": 8,
+        "minute": 29,
+        "second": 47,
+        "nano": 523086500
+      }
+    },
+    "doctor": {
+      "specialisation": "Specialisation 4",
+      "type": "SPECIALIST",
+      "license_number": "License 598",
+      "id": "D5",
+      "login_name": "doctor7",
+      "name": "Doctor 9",
+      "password": "password",
+      "email": "doctor5@example.com",
+      "gender": "Female"
+    },
+    "appointment_status": "CHAOKENG",
+    "doctor_notes": "Notes 5"
+  },
+  {
+    "patient": {
+      "medical_history": "History 6",
+      "allergies": "Allergies 6",
+      "date_of_birth": {
+        "date": {
+          "year": 2024,
+          "month": 2,
+          "day": 9
+        },
+        "time": {
+          "hour": 0,
+          "minute": 32,
+          "second": 47,
+          "nano": 523086500
+        }
+      },
+      "patient_consent": false,
+      "address": "Address 6",
+      "next_of_kin_name": "Next of Kin 6",
+      "id": "P6",
+      "login_name": "patient6",
+      "name": "Patient 6",
+      "password": "password",
+      "email": "patient6@example.com",
+      "gender": "Female"
+    },
+    "reason": "Reason 6",
+    "appointment_time": {
+      "date": {
+        "year": 2025,
+        "month": 8,
+        "day": 26
+      },
+      "time": {
+        "hour": 20,
+        "minute": 8,
+        "second": 47,
+        "nano": 523086500
+      }
+    },
+    "doctor": {
+      "specialisation": "Specialisation 5",
+      "type": "GENERAL_PRACTICE",
+      "license_number": "License 304",
+      "id": "D1",
+      "login_name": "doctor3",
+      "name": "Doctor 3",
+      "password": "password",
+      "email": "doctor7@example.com",
+      "gender": "Male"
+    },
+    "appointment_status": "ACCEPTED",
+    "doctor_notes": "Notes 6"
+  },
+  {
+    "patient": {
+      "medical_history": "History 7",
+      "allergies": "Allergies 7",
+      "date_of_birth": {
+        "date": {
+          "year": 1983,
+          "month": 2,
+          "day": 9
+        },
+        "time": {
+          "hour": 0,
+          "minute": 32,
+          "second": 47,
+          "nano": 523086500
+        }
+      },
+      "patient_consent": true,
+      "address": "Address 7",
+      "next_of_kin_name": "Next of Kin 7",
+      "id": "P7",
+      "login_name": "patient7",
+      "name": "Patient 7",
+      "password": "password",
+      "email": "patient7@example.com",
+      "gender": "Female"
+    },
+    "reason": "Reason 7",
+    "appointment_time": {
+      "date": {
+        "year": 2025,
+        "month": 7,
+        "day": 29
+      },
+      "time": {
+        "hour": 8,
+        "minute": 11,
+        "second": 47,
+        "nano": 523086500
+      }
+    },
+    "doctor": {
+      "specialisation": "Specialisation 6",
+      "type": "SPECIALIST",
+      "license_number": "License 991",
+      "id": "D6",
+      "login_name": "doctor9",
+      "name": "Doctor 10",
+      "password": "password",
+      "email": "doctor1@example.com",
+      "gender": "Male"
+    },
+    "appointment_status": "DECLINED",
+    "doctor_notes": "Notes 7"
+  },
+  {
+    "patient": {
+      "medical_history": "History 8",
+      "allergies": "Allergies 8",
+      "date_of_birth": {
+        "date": {
+          "year": 1983,
+          "month": 2,
+          "day": 9
+        },
+        "time": {
+          "hour": 0,
+          "minute": 32,
+          "second": 47,
+          "nano": 523086500
+        }
+      },
+      "patient_consent": false,
+      "address": "Address 8",
+      "next_of_kin_name": "Next of Kin 8",
+      "id": "P8",
+      "login_name": "patient8",
+      "name": "Patient 8",
+      "password": "password",
+      "email": "patient8@example.com",
+      "gender": "Male"
+    },
+    "reason": "Reason 8",
+    "appointment_time": {
+      "date": {
+        "year": 2025,
+        "month": 8,
+        "day": 6
+      },
+      "time": {
+        "hour": 17,
+        "minute": 0,
+        "second": 47,
+        "nano": 523086500
+      }
+    },
+    "doctor": {
+      "specialisation": "Specialisation 8",
+      "type": "GENERAL_PRACTICE",
+      "license_number": "License 92",
+      "id": "D4",
+      "login_name": "doctor3",
+      "name": "Doctor 4",
+      "password": "password",
+      "email": "doctor4@example.com",
+      "gender": "Female"
+    },
+    "appointment_status": "PENDING",
+    "doctor_notes": "Notes 8"
+  },
+  {
+    "patient": {
+      "medical_history": "History 9",
+      "allergies": "Allergies 9",
+      "date_of_birth": {
+        "date": {
+          "year": 2024,
+          "month": 2,
+          "day": 9
+        },
+        "time": {
+          "hour": 0,
+          "minute": 32,
+          "second": 47,
+          "nano": 523086500
+        }
+      },
+      "patient_consent": false,
+      "address": "Address 9",
+      "next_of_kin_name": "Next of Kin 9",
+      "id": "P9",
+      "login_name": "patient9",
+      "name": "Patient 9",
+      "password": "password",
+      "email": "patient9@example.com",
+      "gender": "Male"
+    },
+    "reason": "Reason 9",
+    "appointment_time": {
+      "date": {
+        "year": 2026,
+        "month": 2,
+        "day": 3
+      },
+      "time": {
+        "hour": 3,
+        "minute": 51,
+        "second": 47,
+        "nano": 523086500
+      }
+    },
+    "doctor": {
+      "specialisation": "Specialisation 3",
+      "type": "GENERAL_PRACTICE",
+      "license_number": "License 917",
+      "id": "D1",
+      "login_name": "doctor4",
+      "name": "Doctor 5",
+      "password": "password",
+      "email": "doctor2@example.com",
+      "gender": "Female"
+    },
+    "appointment_status": "CHAOKENG",
+    "doctor_notes": "Notes 9"
+  },
+  {
+    "patient": {
+      "medical_history": "History 10",
+      "allergies": "Allergies 10",
+      "date_of_birth": {
+        "date": {
+          "year": 1964,
+          "month": 2,
+          "day": 9
+        },
+        "time": {
+          "hour": 0,
+          "minute": 32,
+          "second": 47,
+          "nano": 523086500
+        }
+      },
+      "patient_consent": true,
+      "address": "Address 10",
+      "next_of_kin_name": "Next of Kin 10",
+      "id": "P10",
+      "login_name": "patient10",
+      "name": "Patient 10",
+      "password": "password",
+      "email": "patient10@example.com",
+      "gender": "Male"
+    },
+    "reason": "Reason 10",
+    "appointment_time": {
+      "date": {
+        "year": 2025,
+        "month": 6,
+        "day": 20
+      },
+      "time": {
+        "hour": 8,
+        "minute": 29,
+        "second": 47,
+        "nano": 523086500
+      }
+    },
+    "doctor": {
+      "specialisation": "Specialisation 8",
+      "type": "GENERAL_PRACTICE",
+      "license_number": "License 65",
+      "id": "D6",
+      "login_name": "doctor4",
+      "name": "Doctor 6",
+      "password": "password",
+      "email": "doctor2@example.com",
+      "gender": "Female"
+    },
+    "appointment_status": "PENDING",
+    "doctor_notes": "Notes 10"
+  }
+]
