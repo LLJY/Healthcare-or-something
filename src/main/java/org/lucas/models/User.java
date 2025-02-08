@@ -65,6 +65,17 @@ public abstract class User implements ObjectBase {
         this.gender = gender;
     }
 
+    @Override
+    public String toString() {
+        return "User{" +
+                "id='" + id + '\'' +
+                ", loginName='" + loginName + '\'' +
+                ", name='" + name + '\'' +
+                ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
+                ", gender='" + gender + '\'' +
+                '}';
+    }
 
     /**
      * Prints user info as a pretty JSON string

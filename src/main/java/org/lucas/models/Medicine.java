@@ -31,11 +31,6 @@ public class Medicine {   //fentanyl
 
     public void setMedDosage(String medDosage) {this.medDosage = medDosage;}
 
-//    private static final List<Medicine> availableMedicines = new ArrayList<>();
-//
-//    static{
-//        availableMedicines.add(new Medicine("fentanyl", 69, 10, "3/ hour"));
-//    }
 
     public static final Medicine Fentanyl = new Medicine("Fentanyl", 2.50, 100, "500");
     public static final Medicine Meth = new Medicine("Meth", 5.00, 50, "200");

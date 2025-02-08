@@ -20,4 +20,6 @@ public class Prescription implements ObjectBase {
     public void removeMedicine(Medicine medicine){medicines.remove(medicine);}
     //returns a copy of medicine list to prevent external changes
     public List<Medicine> getMedicines(){return new ArrayList<>(medicines);}
+    //function that select medicine based on string
+    //calls this function pass string -> List check which string = medicine name -> return object
 }

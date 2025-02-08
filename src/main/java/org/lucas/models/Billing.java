@@ -11,6 +11,7 @@ public class Billing implements ObjectBase {
     private int billingID;
     private boolean isPaid;
     private Prescription prescription;
+    //for a list for prescribed medicine
 
     public Billing(Prescription prescription) {
         this.billAmount = 0.0;

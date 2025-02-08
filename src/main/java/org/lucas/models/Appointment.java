@@ -11,8 +11,14 @@ public class Appointment implements ObjectBase {
     private AppointmentStatus appointmentStatus;
     private Session session;
     private String doctorNotes;
-
-
+    // function ( session() -> String(doctornote)-> billing()
+    /*
+    * private void endAppointment(String doctornote){
+    *       //session.end();
+    *        this.doctornote= doctornote
+    *          //billing.billingclass()
+    * }
+    * */
 
     public Appointment(Patient patient, String reason, LocalDateTime appointmentTime, AppointmentStatus appointmentStatus, String doctorNotes) {
         this.patient = patient;
@@ -45,6 +51,8 @@ public class Appointment implements ObjectBase {
     public AppointmentStatus getAppointmentStatus() {return this.appointmentStatus;}
     public void setAppointmentStatus(AppointmentStatus appointmentStatus) {this.appointmentStatus= appointmentStatus;};
     public Doctor getDoctor(){return doctor;}
+    public String getDoctorNotes(){return doctorNotes;}
+    public void setDoctorNotes(String doctorNotes){this.doctorNotes= doctorNotes;}
     public void setDoctor(Doctor doctor){
         this.doctor = doctor;
     }
@@ -71,7 +79,18 @@ public class Appointment implements ObjectBase {
          System.out.println(this.toPrettyJsonString());
      }
 
-
+    @Override
+    public String toString() {
+        return "Appointment{" +
+                "patient=" + patient +
+                ", reason='" + reason + '\'' +
+                ", appointmentTime=" + appointmentTime +
+                ", doctor=" + doctor +
+                ", appointmentStatus=" + appointmentStatus +
+                ", session=" + session +
+                ", doctorNotes='" + doctorNotes + '\'' +
+                '}';
+    }
 }
 
 

@@ -1,5 +1,5 @@
 package org.lucas.models;
-import org.lucas.models.User;
+import org.lucas.models.enums.DoctorType;
 import org.lucas.util.ObjectBase;
 
 public class Doctor extends User implements ObjectBase {
@@ -26,4 +26,12 @@ public class Doctor extends User implements ObjectBase {
         System.out.println(this.toPrettyJsonString());
     }
 
+    @Override
+    public String toString() {
+        return super.toString()+ " Doctor{" +
+                "specialisation='" + specialisation + '\'' +
+                ", type=" + type +
+                ", licenseNumber='" + licenseNumber + '\'' +
+                '}';
+    }
 }
