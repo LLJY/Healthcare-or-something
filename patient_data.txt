@@ -1,0 +1,54 @@
+[
+  {
+    "medical_history": "No significant medical history.",
+    "allergies": "None",
+    "date_of_birth": {
+      "date": {
+        "year": 1995,
+        "month": 2,
+        "day": 9
+      },
+      "time": {
+        "hour": 2,
+        "minute": 18,
+        "second": 39,
+        "nano": 215536000
+      }
+    },
+    "patient_consent": true,
+    "address": "123 Main St",
+    "next_of_kin_name": "Jane Doe",
+    "id": "P001",
+    "login_name": "patient1",
+    "name": "John Doe",
+    "password": "password123",
+    "email": "john.doe@example.com",
+    "gender": "Male"
+  },
+  {
+    "medical_history": "History of asthma.",
+    "allergies": "Penicillin",
+    "date_of_birth": {
+      "date": {
+        "year": 2000,
+        "month": 2,
+        "day": 9
+      },
+      "time": {
+        "hour": 2,
+        "minute": 18,
+        "second": 39,
+        "nano": 216537900
+      }
+    },
+    "patient_consent": false,
+    "address": "456 Oak Ave",
+    "next_of_kin_name": "Bob Smith",
+    "id": "P002",
+    "login_name": "patient2",
+    "name": "Alice Smith",
+    "password": "securepass",
+    "email": "alice.smith@example.com",
+    "gender": "Female"
+  }
+]
