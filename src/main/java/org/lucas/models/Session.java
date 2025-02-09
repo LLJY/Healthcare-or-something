@@ -1,5 +1,6 @@
 package org.lucas.models;
 
+import org.lucas.models.enums.SessionStatus;
 import org.lucas.util.ObjectBase;
 import java.util.Date;
 
@@ -7,20 +8,33 @@ import javax.print.Doc;
 import java.time.LocalDateTime;
 import java.util.*;
 
+/**
+ * Represents a session for a virtual meeting via Zoom in the context of medical or professional interactions.
+ * This class handles session details such as start and end times, connectivity issues, and session statuses,
+ * providing methods to manage and record session activities effectively.
+ */
 public class Session implements ObjectBase {
     private String id;
     private LocalDateTime startTime;
+    private LocalDateTime endTime;
     private String remarks;
     private String connectivityIssues;
     private String zoomLink;
+    private SessionStatus sessionStatus;
 
-    //ongoing session start ongoing finish time
-
-    public Session(LocalDateTime startTime,String zoomLink) {
-
+    /**
+     * Constructs a new Session instance with a specified Zoom link for virtual meetings.
+     * This constructor initializes the session with a unique identifier, sets the start time to the current time,
+     * and assigns the provided Zoom link. It also sets the initial session status to ONGOING, indicating that the session
+     * is active from the time of creation.
+     *
+     * @param zoomLink A string representing the Zoom meeting link for the session. This link is crucial for participants to join the virtual session.
+     */
+    public Session(String zoomLink) {
         this.id = UUID.randomUUID().toString();
-        this.startTime = startTime;
+        this.startTime =   LocalDateTime.now();
         this.zoomLink = zoomLink;
+        this.sessionStatus = SessionStatus.ONGOING;
     }
 
     public String getId() {
@@ -58,6 +72,22 @@ public class Session implements ObjectBase {
     public String getZoomLink() {return zoomLink;}
     public void setZoomLink(String zoomLink) {this.zoomLink = zoomLink;}
 
+    public SessionStatus getSessionStatus(){return sessionStatus;};
+    public void setSessionStatus(SessionStatus sessionStatus){this.sessionStatus = sessionStatus;}
+
+    public LocalDateTime getEndTime(){return endTime;}
+    public void setEndTime(LocalDateTime time){this.endTime= time;}
+    ;
+
+    /**
+     * Marks the session as completed by updating the session status and recording the end time.
+     * This method sets the session status to COMPLETED and captures the current time as the end time of the session.
+     * It should be called when all session activities are concluded to ensure the session is properly closed in the system.
+     */
+    public void endSession(){
+        setSessionStatus(SessionStatus.COMPLETED);
+        setEndTime(LocalDateTime.now());
+    }
 
     @Override
     public boolean equals(Object o) {

@@ -1,41 +1,57 @@
 package org.lucas.models;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import org.lucas.Globals;
+import org.lucas.util.Util;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.lang.reflect.Type;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Medicine {   //fentanyl
+/**
+ * Represents a type of medicine, including its name, price, and methods for managing available medicines.
+ * This class supports creating medicine instances, finding medicines by name,
+ * and managing a list of available medicines through file I/O.  It uses JSON
+ * serialization for persistence.
+ * <p>
+ * The class maintains a static list of available medicines, which is loaded from and saved to
+ * a file. This allows the application to retain medicine information across sessions.
+*/
+
+public class Medicine {
     private String medName;
-    private double medPrice;
+    private double medPrice = 0.0;
     private int medQuantity;
     private String medDosage;
-    public Medicine(String medName,double medPrice,int medQuantity,String medDosage){
-        this.medName = medName;
+
+    public Medicine(String medicineName, int quantity, String dosage) {
+        this.medName = medicineName;
+        this.medQuantity = quantity;
+        this.medDosage = dosage;
+    }
+
+    public Medicine(String medicineName, int quantity, String dosage, double medPrice) {
         this.medPrice = medPrice;
-        this.medQuantity = medQuantity;
-        this.medDosage = medDosage;
+        this.medName = medicineName;
+        this.medQuantity = quantity;
+        this.medDosage = dosage;
     }
 
     public String getMedName() {return medName;}
-
     public double getMedPrice() {return medPrice;}
-
     public int getMedQuantity() {return medQuantity;}
-
     public String getMedDosage() {return medDosage;}
-
     public void setMedName(String medName) {this.medName = medName;}
-
     public void setMedPrice(float medPrice) {this.medPrice = medPrice;}
-
     public void setMedQuantity(int medQuantity) {this.medQuantity = medQuantity;}
-
     public void setMedDosage(String medDosage) {this.medDosage = medDosage;}
-
-
-    public static final Medicine Fentanyl = new Medicine("Fentanyl", 2.50, 100, "500");
-    public static final Medicine Meth = new Medicine("Meth", 5.00, 50, "200");
-    public static final Medicine Cocaine = new Medicine("Cocaine", 50000.0, 50, "200");
-    public static final Medicine CrystalMethamphetamine = new Medicine("Crystal Methamphetamine", 100000.0, 50, "200");
 
 }
 

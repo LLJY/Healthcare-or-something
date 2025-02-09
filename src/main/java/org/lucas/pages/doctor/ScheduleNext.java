@@ -1,4 +1,4 @@
-package org.lucas.pages;
+package org.lucas.pages.doctor;
 
 import org.lucas.Globals;
 import org.lucas.ui.framework.Color;
@@ -112,6 +112,6 @@ public class ScheduleNext extends UiBase {
     @Override
     public void OnBackPressed() {
         super.OnBackPressed();
-        ToPage(Globals.appointmentInfoPage); // Or navigate back to wherever is appropriate
+        ToPage(Globals.teleconsultPage); // Or navigate back to wherever is appropriate
     }
 }

@@ -138,6 +138,26 @@ public class Canvas {
     }
 
     /**
+     * Utility function to force an update of the current View in the canvas.
+     * Contains logic from previousPage and pushPage but without calling the callbacks.
+     */
+    public void newInPlacePage(View v){
+        canvasBackstack.pop();
+        canvasBackstack.push(v);
+        if(v.getInputOptions().get(0) == null){
+            // manually add input 0 to always be the back button
+            v.inputOptions.put(0, new UserInput("Go Back", str->{
+                v.OnBackPressed();
+                this.previousPage();
+            }));
+        }
+        this.clearCallbacks();
+        this.addOnBackPressedCallback(v::OnBackPressed);
+        this.addApplicationStopCallback(v::OnApplicationExit);
+        this.setRequireRedraw(true);
+    }
+
+    /**
      * The program's main loop, handles logic for the user interface, including inputs, rudimentary error handling and input validation
      * As well as gracefully stopping the application.
      */

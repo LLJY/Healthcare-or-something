@@ -1,33 +1,59 @@
 package org.lucas.models;
 
+import org.lucas.models.enums.AppointmentStatus;
 import org.lucas.util.ObjectBase;
 import java.time.LocalDateTime;
+
+/**
+ * This class represents an appointment for a telemedicine integeration for a hospital
+ * It provides functionalities to manage appointments involving patients and doctors
+ * It includes setting and updating appointment time, managing appointment statuses, and handling billing procedures.
+ *
+ * Example Usage:
+ *
+ *     Appointment appointment = new Appointment(patient, "Routine check-up", time, AppointmentStatus.PENDING, "Initial notes");
+ *     appointment.setDoctor(doctor);
+ *     appointment.approve(doctor, "zoomLinkExample");
+ */
 
 public class Appointment implements ObjectBase {
     private Patient patient;
     private String reason;
-    public LocalDateTime appointmentTime;
+    private String history;
+    private LocalDateTime appointmentTime;
     private Doctor doctor;
     private AppointmentStatus appointmentStatus;
     private Session session;
     private String doctorNotes;
-    // function ( session() -> String(doctornote)-> billing()
-    /*
-    * private void endAppointment(String doctornote){
-    *       //session.end();
-    *        this.doctornote= doctornote
-    *          //billing.billingclass()
-    * }
-    * */
+    private Billing billing;
+    private MedicalCertificate mc;
+    /**
+     * Constructs a new Appointment with the specified details.
+     *
+     *  @param patient the patient involved in the appointment
+     *  @param reason the reason for the appointment
+     *  @param appointmentTime the time the appointment is scheduled
+     *  @param appointmentStatus the initial status of the appointment
+     */
 
-    public Appointment(Patient patient, String reason, LocalDateTime appointmentTime, AppointmentStatus appointmentStatus, String doctorNotes) {
-        this.patient = patient;
-        this.reason = reason;
-        this.appointmentTime = appointmentTime;
-        this.appointmentStatus = appointmentStatus;
-        this.doctorNotes = doctorNotes;
+    public Appointment(Patient patient, String reason, LocalDateTime appointmentTime, AppointmentStatus appointmentStatus) {
+            this.patient = patient;
+            this.reason = reason;
+            this.appointmentTime = appointmentTime;
+            this.appointmentStatus = appointmentStatus;
     }
 
+
+    public Session getSession() {return session;};
+    public void setSession(Session session) {this.session = session;};
+    public AppointmentStatus getAppointmentStatus() {return this.appointmentStatus;}
+    public void setAppointmentStatus(AppointmentStatus appointmentStatus) {this.appointmentStatus= appointmentStatus;};
+    public Doctor getDoctor(){return doctor;}
+    public String getDoctorNotes(){return doctorNotes;}
+    public void setDoctorNotes(String doctorNotes){this.doctorNotes= doctorNotes;}
+    public void setDoctor(Doctor doctor){
+        this.doctor = doctor;
+    }
     public Patient getPatient() {
         return patient;
     }
@@ -43,41 +69,68 @@ public class Appointment implements ObjectBase {
     public LocalDateTime getAppointmentTime() {
         return appointmentTime;
     }
+
+    public void setHistory(String history) {
+        this.history = history;
+    }
+
+    public String getHistory() {
+        return history;
+    }
+
     public void setAppointmentTime(LocalDateTime appointmentTime) {
         this.appointmentTime = appointmentTime;
     }
-    public Session getSession() {return session;};
-    public void setSession(Session session) {this.session = session;};
-    public AppointmentStatus getAppointmentStatus() {return this.appointmentStatus;}
-    public void setAppointmentStatus(AppointmentStatus appointmentStatus) {this.appointmentStatus= appointmentStatus;};
-    public Doctor getDoctor(){return doctor;}
-    public String getDoctorNotes(){return doctorNotes;}
-    public void setDoctorNotes(String doctorNotes){this.doctorNotes= doctorNotes;}
-    public void setDoctor(Doctor doctor){
-        this.doctor = doctor;
+
+
+    public Billing getBilling() {
+        return billing;
     }
 
+    public void setBilling(Billing billing) {
+        this.billing = billing;
+    }
 
-    public void Approved(Doctor doctor, Session session) {
+    /**
+     * Approves the appointment and initiates a session with the specified details.
+     * This method changes the status of the appointment to 'ACCEPTED', creates a new session object for appointments that are approved, and initializes billing procedures. It invokes the initialBill() method to process the initial bill based on the assigned doctor's rates.
+     *
+     * @param doctor the doctor who is taking the appointment; this doctor is assigned to the appointment and responsible for the session
+     * @param zoomlink the Zoom link that will be used for the virtual meeting during the appointment; this link is stored in the session details
+     */
+    public void approveAppointment(Doctor doctor, String zoomlink) {
         this.doctor = doctor;
         this.appointmentStatus = AppointmentStatus.ACCEPTED;
-        this.session = session;
-
+        this.session = new Session(zoomlink);
+        this.billing = new Billing();
+        this.billing.initialBill(doctor);
     }
 
-    public void TRYING(){
-        System.out.println("Patient Name: "+patient.getName());
-        System.out.println("Appointment Reason: "+reason);
-        System.out.println("Appointment time: "+appointmentTime);
-        System.out.println("Appointment Status:"+ appointmentStatus);
-        if(doctor!=null){
-            System.out.println("Doctor Name: "+doctor.getName());
-        }
+    /**
+     * Completes the appointment process by ending the session, updating the doctor's notes, and triggering billing.
+     * - `endSession()`: Marks the session as completed, reflecting its conclusion in the system.
+     * - `setDoctorNotes(String)`: Updates the appointment record with the doctor's final observations.
+     * This method ensures all aspects of the appointment are concluded and documented properly in the system.
+     *
+     * @param doctorNotes the doctor's final remarks for the patient, intended for medical records and follow-up care.
+     */
+    public void finishAppointment(String doctorNotes){
+        this.session.endSession();
+        this.doctorNotes = doctorNotes;
+        this.appointmentStatus = AppointmentStatus.COMPLETED;
     }
 
-     public void print() {
-         System.out.println(this.toPrettyJsonString());
-     }
+    public void setMedicalCertificate(MedicalCertificate mc){
+        this.mc = mc;
+    }
+
+    public MedicalCertificate getMc() {
+        return mc;
+    }
+
+    public void print() {
+        System.out.println(this.toPrettyJsonString());
+    }
 
     @Override
     public String toString() {
@@ -92,20 +145,3 @@ public class Appointment implements ObjectBase {
                 '}';
     }
 }
-
-
-
-
-// Patient -> Appointment -> waiting for the doctor to approve -> Assign doctor in the appointment
-// Pass patient as an object
-// Doctor as an Object
-// Status : pending or approved
-// approved ->appointment -> session date / time
-// if there's no appointment wants a doctor, current time
-// if time less than/eq the current time wants asap
-// if more means appointment
-// able to sort the queue by using date time
-
-// approved -> appointment -> session date / time
-// Zoom link -> Doc Notes -> Back to [appointment -> session date / time ]
-// once the session is  created deleted objected

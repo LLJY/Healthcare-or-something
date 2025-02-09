@@ -1,5 +1,7 @@
 package org.lucas.ui.framework;
 
+import org.lucas.pages.doctor.NullPage;
+
 import java.util.Stack;
 
 /**
@@ -8,8 +10,14 @@ import java.util.Stack;
 public class ApplicationContext {
     protected Canvas canvas;
     protected Stack<UiBase> backStack = new Stack<>();
+    protected NullPage nullPage;
     public ApplicationContext(Canvas canvas) {
         this.canvas = canvas;
+
+        nullPage = new NullPage();
+        nullPage.setCanvas(canvas);
+        nullPage.setApplicationContext(this);
+        backStack.push(nullPage);
     }
 
     /**

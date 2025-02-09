@@ -1,6 +1,8 @@
 package org.lucas.ui.framework;
 
 
+import org.lucas.pages.doctor.NullPage;
+
 public abstract class UiBase {
     protected Canvas canvas;
     // variable to keep track of canvas backstack size, so we know we really went back or not
@@ -33,14 +35,25 @@ public abstract class UiBase {
      * Called when the back button is pressed.
      */
     public void OnBackPressed(){
-        if(this.canvas.getBackstackSize() != context.backStack.size() + 1){
+        if(this.canvas.getBackstackSize() != context.backStack.size()){
+            UiBase poppedPage = context.backStack.pop();
+            if(this.context.backStack.peek() instanceof NullPage){
+                context.backStack.push(poppedPage);
+                return;
+            }
             // we now know the backstack has been updated, tell context.
-            context.backStack.pop();
             UiBase page = context.backStack.peek();
 
             // the canvas will handle the backstack rendering independently. So no need to manipulate.
+            System.out.println("oiiiiiiiiiiiii");
             var view = page.OnCreateView();
             page.OnViewCreated(view);
+
+            // sometimes canvas may not correctly render the new page
+            // since I carelessly let canvas have its own backstack.
+            // so sometimes the old view may be an old reference.
+            // TODO remove backstack support from canvas.
+            canvas.newInPlacePage(view);
             page.setApplicationContext(context);
             canvas.clearCallbacks();
             canvas.addOnBackPressedCallback(page::OnBackPressed);

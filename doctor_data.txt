@@ -4,21 +4,21 @@
     "type": "GENERAL_PRACTICE",
     "license_number": "L12345",
     "id": "D001",
-    "login_name": "doctor1",
+    "login_name": "limtzekai",
     "name": "Dr. Lim Tze Kai",
     "password": "docpass",
-    "email": "jane.smith@clinic.com",
-    "gender": "Female"
+    "email": "limtzekai@clinic.com",
+    "gender": "Male"
   },
   {
-    "specialisation": "Pediatrics",
+    "specialisation": "Cardiology",
     "type": "SPECIALIST",
     "license_number": "L67890",
     "id": "D002",
-    "login_name": "doctor2",
-    "name": "Dr. David Lee",
+    "login_name": "kieransim",
+    "name": "Dr. Kieran Sim",
     "password": "securedoc",
-    "email": "david.lee@clinic.com",
+    "email": "kieransim@clinic.com",
     "gender": "Male"
   }
 ]

@@ -1,9 +1,11 @@
-package org.lucas.pages;
+package org.lucas.pages.doctor;
 
 import org.lucas.Globals;
-import org.lucas.controllers.LoginController;
+import org.lucas.controllers.UserController;
 import org.lucas.models.Appointment;
-import org.lucas.models.AppointmentStatus;
+import org.lucas.models.enums.AppointmentStatus;
+import org.lucas.models.Billing;
+import org.lucas.models.Session;
 import org.lucas.models.enums.UserType;
 import org.lucas.ui.framework.Color;
 import org.lucas.ui.framework.TextStyle;
@@ -12,24 +14,30 @@ import org.lucas.ui.framework.View;
 import org.lucas.ui.framework.views.ListView;
 import org.lucas.ui.framework.views.ListViewOrientation;
 import org.lucas.ui.framework.views.TextView;
+import org.lucas.util.ZoomCreator;
+import org.lucas.util.ZoomOAuth;
 
+import java.io.IOException;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Scanner;
 
+import static org.lucas.Globals.gsonPrettyPrint;
+
 public class ViewAppointmentsPage extends UiBase {
     ListView listView;
+    List<Appointment> appointments;
     @Override
     public View OnCreateView() {
         ListView lv = new ListView(
                 this.canvas,
                 Color.GREEN
         );
-        if(LoginController.getActiveUserType() != UserType.DOCTOR){
+        if(UserController.getActiveUserType() != UserType.DOCTOR){
             this.OnBackPressed();
             return lv;
         }
-        lv.setTitleHeader(" View Appointments | Welcome back! " + LoginController.getActiveDoctor().getName());
+        lv.setTitleHeader(" View Appointments | Welcome back! " + UserController.getActiveDoctor().getName());
         this.listView = lv;
         return lv;
     }
@@ -37,10 +45,15 @@ public class ViewAppointmentsPage extends UiBase {
     @Override
     public void OnViewCreated(View parentView) {
        ListView listView = (ListView) parentView;
+        appointments = Globals.appointmentController.getAppointments()
+                .stream()
+                .filter(x->x.getAppointmentStatus() != AppointmentStatus.COMPLETED)
+                .toList();
+
+        System.out.println(gsonPrettyPrint.toJson(appointments));
+       // filter the appointments list and only show the appointments that are completed.
        listView.attachUserInput("Select Patient index", str->{
-           List<Appointment> appointments = Globals.appointmentManager.getAppointments();
            selectAppointmentPrompt(appointments);
-           Appointment appointment = appointments.get(Integer.parseInt(str));
        });
        refreshUi();
     }
@@ -61,9 +74,15 @@ public class ViewAppointmentsPage extends UiBase {
         boolean validInput1 = false;
         int selectedIndex1 = -1;
         while (!validInput1) {
-            System.out.println("Select Options: 1. Approve appointment | 2. Reject appointment | 3. Start Appointment | 4. View Patient Info");
+            int indexMax = 5;
+            if(selectedAppointment.getAppointmentStatus() == AppointmentStatus.ACCEPTED){
+                System.out.println("Select Options: 1. Approve appointment | 2. Reject appointment | 3. View Patient Info | 4. Start Appointment");
+            }else{
+                System.out.println("Select Options: 1. Approve appointment | 2. Reject appointment | 3. View Patient Info");
+                indexMax -= 1;
+            }
             selectedIndex1 = scanner.nextInt();
-            if(selectedIndex1 >= 0 && selectedIndex1 < 4) {
+            if(selectedIndex1 >= 0 && selectedIndex1 < indexMax) {
                 validInput = true;
                 break;
             }
@@ -71,14 +90,35 @@ public class ViewAppointmentsPage extends UiBase {
         switch (selectedIndex1){
             case 1:
                 selectedAppointment.setAppointmentStatus(AppointmentStatus.ACCEPTED);
+                System.out.println("Accepted, generating zoomlink...");
+                try {
+                    // Get the OAuth access token
+                    String accessToken = ZoomOAuth.getAccessToken();
+
+                    // Call the method to create a Zoom meeting
+                    String joinUrl = ZoomCreator.createZoomMeeting(
+                            accessToken,
+                            "Zoom Meeting",
+                            1, // Duration in minutes
+                            "UTC" // Timezone
+                    );
+                    selectedAppointment.setSession(new Session(joinUrl));
+                    selectedAppointment.setBilling(new Billing());
+                }catch (IOException e){
+                    System.out.println("Error generating zoom link");
+                }
                 break;
             case 2:
                 selectedAppointment.setAppointmentStatus(AppointmentStatus.DECLINED);
                 break;
             case 3:
-                // TODO, go to appt page
+                PatientInfoPage.patient = selectedAppointment.getPatient();
+                ToPage(Globals.patientInfoPage);
+                break;
             case 4:
-                // TODO go to view patient page
+                TeleconsultPage.setAppointment(selectedAppointment);
+                ToPage(Globals.teleconsultPage);
+                break;
         }
 
         refreshUi();
@@ -86,21 +126,24 @@ public class ViewAppointmentsPage extends UiBase {
 
     private void refreshUi() {
         listView.clear();
-        List<Appointment> appointments = Globals.appointmentManager.getAppointments();
+        // loop through the appointments and display them
         for (int i = 0; i < appointments.size(); i++) {
             Appointment appointment = appointments.get(i);
             String patientName = appointment.getPatient().getName();
             String consultReason = appointment.getReason();
             String formattedTime = appointment.getAppointmentTime().format(DateTimeFormatter.ofPattern("HH:mm"));
+
+            // error handling for dirty json data
             if(appointment.getAppointmentStatus() == null){
                 appointment.setAppointmentStatus(AppointmentStatus.PENDING);
             }
+
             String status = appointment.getAppointmentStatus().toString();
 
             String displayText = String.format("%d. %s | Consult Reason: %s | Time: %s |",
                     i, patientName, consultReason, formattedTime);
 
-            Color itemColor = getItemColor(appointment.getAppointmentStatus()); // Extract to a separate method
+            Color itemColor = getItemColor(appointment.getAppointmentStatus());
 
             // add row view for horizontal separation, use two text views for two different statuses.
             ListView rowView = new ListView(this.canvas, itemColor, ListViewOrientation.HORIZONTAL);

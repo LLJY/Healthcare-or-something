@@ -1,5 +1,4 @@
-package org.lucas.pages;
-import org.lucas.Globals;
+package org.lucas.pages.doctor;
 import org.lucas.util.ZoomCreator;
 import org.lucas.util.ZoomOAuth;
 import org.lucas.ui.framework.Color;
@@ -17,10 +16,10 @@ public class ZoomMeetingPage extends UiBase {
     public View OnCreateView() {
         ListView lv = new ListView(
                 this.canvas,
-                Color.MAGENTA
+                Color.GREEN
         );
         lv.setTitleHeader("Zoom Meeting Generator");
-        lv.addItem(new TextView(this.canvas, "Do you want to create a Zoom Meeting with your patient? ", Color.MAGENTA));
+        lv.addItem(new TextView(this.canvas, "Do you want to create a Zoom Meeting with your patient? ", Color.GREEN));
         return lv;
     }
 
@@ -44,7 +43,7 @@ public class ZoomMeetingPage extends UiBase {
                 // Output the join URL
                 System.out.println("Zoom Meeting URL: " + joinUrl);
                 // Kaiser Page
-                ToPage(Globals.appointmentInfoPage);
+//                ToPage(Globals.teleconsultPage);
             } catch (IOException e) {
                 e.printStackTrace();
             }
