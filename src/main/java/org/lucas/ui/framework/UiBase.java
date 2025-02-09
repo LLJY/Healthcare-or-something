@@ -45,7 +45,6 @@ public abstract class UiBase {
             UiBase page = context.backStack.peek();
 
             // the canvas will handle the backstack rendering independently. So no need to manipulate.
-            System.out.println("oiiiiiiiiiiiii");
             var view = page.OnCreateView();
             page.OnViewCreated(view);
 
