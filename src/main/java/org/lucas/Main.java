@@ -1,22 +1,26 @@
 package org.lucas;
 
-import org.lucas.models.ExampleRecord;
+import org.lucas.models.*;
+import org.lucas.controllers.*;
+import org.lucas.models.Doctor;
+import org.lucas.models.Patient;
 import org.lucas.ui.framework.ApplicationContext;
 import org.lucas.ui.framework.Canvas;
 
+import java.time.LocalDateTime;
+import java.util.Scanner;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+
 public class Main {
+    private static ApplicationContext applicationContext;
+
     public static void main(String[] args) {
-        ExampleRecord exampleRecord = new ExampleRecord("Lucas Lee", 12, "aaaaa@aaaa.com");
-        System.out.println(exampleRecord.toPrettyJsonString());
-
-        // create a new canvas
+//        Globals.appointmentManager.generateRandomAppointmentData(6);
+        // initialise medicines
+        MedicinesController.getAvailableMedicines();
+        //create a new canvas
         var canvas = new Canvas();
-
-        ApplicationContext applicationContext = new ApplicationContext(canvas);
-
-        applicationContext.startApplication(Globals.exampleUi);
+        applicationContext = new ApplicationContext(canvas);
+        applicationContext.startApplication(Globals.loginPage);
     }
 }

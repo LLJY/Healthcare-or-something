@@ -1,0 +1,56 @@
+[
+  {
+    "med_name": "Ibuprofen",
+    "med_price": 8.99,
+    "med_quantity": 50,
+    "med_dosage": "200mg, 1-2 tablets every 4-6 hours"
+  },
+  {
+    "med_name": "Acetaminophen",
+    "med_price": 7.49,
+    "med_quantity": 100,
+    "med_dosage": "500mg, 1-2 tablets every 6 hours"
+  },
+  {
+    "med_name": "Loratadine",
+    "med_price": 12.99,
+    "med_quantity": 30,
+    "med_dosage": "10mg, 1 tablet daily"
+  },
+  {
+    "med_name": "Diphenhydramine",
+    "med_price": 6.29,
+    "med_quantity": 24,
+    "med_dosage": "25mg, 1-2 tablets every 4-6 hours"
+  },
+  {
+    "med_name": "Ranitidine",
+    "med_price": 9.99,
+    "med_quantity": 60,
+    "med_dosage": "150mg, 1 tablet twice daily"
+  },
+  {
+    "med_name": "Loperamide",
+    "med_price": 5.49,
+    "med_quantity": 12,
+    "med_dosage": "2mg, 2 caplets after first loose stool, then 1 caplet after each"
+  },
+  {
+    "med_name": "Pseudoephedrine",
+    "med_price": 7.0,
+    "med_quantity": 20,
+    "med_dosage": "30mg, 1-2 tablets every 4-6 hours"
+  },
+  {
+    "med_name": "Guaifenesin",
+    "med_price": 8.0,
+    "med_quantity": 40,
+    "med_dosage": "200mg, 1-2 tablets every 4 hours"
+  },
+  {
+    "med_name": "Dextromethorphan",
+    "med_price": 6.5,
+    "med_quantity": 30,
+    "med_dosage": "30mg, 1-2 teaspoons every 6-8 hours"
+  }
+]

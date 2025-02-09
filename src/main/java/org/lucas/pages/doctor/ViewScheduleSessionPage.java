@@ -1,4 +1,4 @@
-package org.lucas.pages;
+package org.lucas.pages.doctor;
 
 import org.lucas.ui.framework.Color;
 import org.lucas.ui.framework.UiBase;
