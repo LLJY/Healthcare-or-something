@@ -50,7 +50,6 @@ public class ViewAppointmentsPage extends UiBase {
                 .filter(x->x.getAppointmentStatus() != AppointmentStatus.COMPLETED)
                 .toList();
 
-        System.out.println(gsonPrettyPrint.toJson(appointments));
        // filter the appointments list and only show the appointments that are completed.
        listView.attachUserInput("Select Patient index", str->{
            selectAppointmentPrompt(appointments);
