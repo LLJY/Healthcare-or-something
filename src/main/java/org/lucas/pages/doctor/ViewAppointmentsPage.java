@@ -104,12 +104,14 @@ public class ViewAppointmentsPage extends UiBase {
                     );
                     selectedAppointment.setSession(new Session(joinUrl));
                     selectedAppointment.setBilling(new Billing());
+                    Globals.appointmentController.saveAppointmentsToFile();
                 }catch (IOException e){
                     System.out.println("Error generating zoom link");
                 }
                 break;
             case 2:
                 selectedAppointment.setAppointmentStatus(AppointmentStatus.DECLINED);
+                Globals.appointmentController.saveAppointmentsToFile();
                 break;
             case 3:
                 PatientInfoPage.patient = selectedAppointment.getPatient();
@@ -132,6 +134,7 @@ public class ViewAppointmentsPage extends UiBase {
             String patientName = appointment.getPatient().getName();
             String consultReason = appointment.getReason();
             String formattedTime = appointment.getAppointmentTime().format(DateTimeFormatter.ofPattern("HH:mm"));
+            String formattedDate = appointment.getAppointmentTime().format(DateTimeFormatter.ofPattern("MM/dd/yyyy"));
 
             // error handling for dirty json data
             if(appointment.getAppointmentStatus() == null){
@@ -140,8 +143,8 @@ public class ViewAppointmentsPage extends UiBase {
 
             String status = appointment.getAppointmentStatus().toString();
 
-            String displayText = String.format("%d. %s | Consult Reason: %s | Time: %s |",
-                    i, patientName, consultReason, formattedTime);
+            String displayText = String.format("%d. %s | Consult Reason: %s | Date: %s | Time: %s |",
+                    i, patientName, consultReason, formattedDate, formattedTime);
 
             Color itemColor = getItemColor(appointment.getAppointmentStatus());
 

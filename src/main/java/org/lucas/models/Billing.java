@@ -72,6 +72,13 @@ public class Billing implements ObjectBase {
         }
     }
 
+    public double getBillAmount() {
+        if(billAmount == 0.0){
+            calculateBillAmount();
+        }
+        return billAmount;
+    }
+
 
     /**
      * Initializes or resets the prescription associated with this billing to a new, empty Prescription instance.
@@ -90,35 +97,8 @@ public class Billing implements ObjectBase {
         return this.prescription;
     }
 
-//    public void addMedicinesToPrescription(Scanner scanner) {
-//        while (true) {
-//            System.out.print("Enter medicine name (or 'done' to finish): ");
-//            String medicineName = scanner.nextLine();
-//
-//            if (medicineName.equalsIgnoreCase("done")) {
-//                break;
-//            }
-//
-//            System.out.print("Enter quantity: ");
-//            int quantity;
-//            try {
-//                quantity = Integer.parseInt(scanner.nextLine());
-//            } catch (NumberFormatException e) {
-//                System.out.println("Invalid quantity. Please enter a number.");
-//                continue;
-//            }
-//
-//            System.out.print("Enter dosage (e.g., 500mg): ");
-//            String dosage = scanner.nextLine();
-//
-//            prescription.addMedicine(medicineName, quantity, dosage);
-//        }
-//        calculateBillAmount(); // Calculate bill *after* adding medicines
-//    }
-
-
     //to generate template of bill
-    public String generateBill() {
+    public String generateBillString() {
         StringBuilder billDetails = new StringBuilder();
         billDetails.append("Bill ID: ").append(billingID).append("\n");
         billDetails.append("----------------------------------------\n");
@@ -139,7 +119,13 @@ public class Billing implements ObjectBase {
 
     //Prescription
 
-    // method to get bill details (for display or printing)
     @Override
-    public String toString() { return generateBill(); }
+    public String toString() {
+        return "Billing{" +
+                "billAmount=" + billAmount +
+                ", billingID='" + billingID + '\'' +
+                ", isPaid=" + isPaid +
+                ", prescription=" + prescription +
+                '}';
+    }
 }

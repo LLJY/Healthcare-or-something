@@ -1,5 +1,6 @@
 package org.lucas.pages.doctor;
 
+import org.lucas.Globals;
 import org.lucas.controllers.MedicinesController;
 import org.lucas.models.Appointment;
 import org.lucas.models.MedicalCertificate;
@@ -112,6 +113,7 @@ public class TeleconsultPage extends UiBase {
             System.out.println("Finishing consultation...");
             System.out.println("Calculating Billing for patient...");
             appointment.finishAppointment(appointment.getDoctorNotes());
+            Globals.appointmentController.saveAppointmentsToFile();
             canvas.previousPage();
             this.OnBackPressed();
         });
