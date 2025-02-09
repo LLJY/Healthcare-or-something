@@ -33,9 +33,13 @@ public abstract class UiBase {
      * Called when the back button is pressed.
      */
     public void OnBackPressed(){
-        if(this.canvas.getBackstackSize() != context.backStack.size() + 1){
+        if(this.canvas.getBackstackSize() != context.backStack.size()){
+            UiBase poppedPage = context.backStack.pop();
+            if(this.context.backStack.peek() instanceof NullPage){
+                context.backStack.push(poppedPage);
+                return;
+            }
             // we now know the backstack has been updated, tell context.
-            context.backStack.pop();
             UiBase page = context.backStack.peek();
 
             // the canvas will handle the backstack rendering independently. So no need to manipulate.
