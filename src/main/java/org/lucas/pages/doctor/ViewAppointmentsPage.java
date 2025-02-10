@@ -37,7 +37,7 @@ public class ViewAppointmentsPage extends UiBase {
             this.OnBackPressed();
             return lv;
         }
-        lv.setTitleHeader(" View Appointments | Welcome back! " + UserController.getActiveDoctor().getName());
+        lv.setTitleHeader(" View Appointments | " + UserController.getActiveDoctor().getName());
         this.listView = lv;
         return lv;
     }
