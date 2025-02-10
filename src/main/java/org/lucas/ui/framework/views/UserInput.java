@@ -1,7 +1,5 @@
 package org.lucas.ui.framework.views;
 
-import java.util.function.Predicate;
-
 /**
  * Defines the user input for a view.
  * @param promptText A user friendly name.

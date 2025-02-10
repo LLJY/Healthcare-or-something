@@ -3,10 +3,8 @@ package org.lucas.models;
 import org.lucas.controllers.MedicinesController;
 import org.lucas.util.ObjectBase;
 
-import javax.print.attribute.standard.MediaName;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 import java.util.UUID;
 
 /**

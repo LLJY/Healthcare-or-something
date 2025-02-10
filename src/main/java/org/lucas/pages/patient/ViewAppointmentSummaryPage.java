@@ -1,10 +1,7 @@
 package org.lucas.pages.patient;
 
-import org.lucas.Globals;
-import org.lucas.controllers.MedicinesController;
 import org.lucas.controllers.UserController;
 import org.lucas.models.Appointment;
-import org.lucas.models.MedicalCertificate;
 import org.lucas.models.Medicine;
 import org.lucas.models.Prescription;
 import org.lucas.ui.framework.Color;
@@ -14,10 +11,8 @@ import org.lucas.ui.framework.View;
 import org.lucas.ui.framework.views.ListView;
 import org.lucas.ui.framework.views.TextView;
 
-import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
-import java.util.Scanner;
 
 public class ViewAppointmentSummaryPage extends UiBase {
     private static Appointment appointment;

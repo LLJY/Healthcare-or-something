@@ -3,7 +3,6 @@ package org.lucas.models;
 import org.lucas.util.ObjectBase;
 
 import java.time.LocalDateTime;
-import java.util.Objects;
 
 /**
  * Represents a patient in the healthcare system, extending the User class with medical-specific details.
@@ -40,7 +39,6 @@ public class Patient extends User implements ObjectBase {
         this.medicalHistory = medicalHistory;
         this.allergies = allergies;
         this.dateOfBirth = dateOfBirth;
-        this.patientConsent = patientConsent;
         this.address = address;
         this.nextOfKinName = nextOfKinName;
         this.patientConsent = new PatientConsent(false, "");

@@ -1,20 +1,5 @@
 package org.lucas.models;
 
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-import org.lucas.Globals;
-import org.lucas.util.Util;
-
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.lang.reflect.Type;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * Represents a type of medicine, including its name, price, and methods for managing available medicines.
  * This class supports creating medicine instances, finding medicines by name,

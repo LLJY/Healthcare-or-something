@@ -10,7 +10,6 @@ import org.lucas.ui.framework.views.ListView;
 import org.lucas.ui.framework.views.TextView;
 
 import java.util.List;
-import java.util.Scanner;
 
 /**
  * Dual purpose page, can ask user to select multiple patients, or display a single patient

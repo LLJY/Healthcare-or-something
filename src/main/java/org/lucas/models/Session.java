@@ -2,9 +2,7 @@ package org.lucas.models;
 
 import org.lucas.models.enums.SessionStatus;
 import org.lucas.util.ObjectBase;
-import java.util.Date;
 
-import javax.print.Doc;
 import java.time.LocalDateTime;
 import java.util.*;
 
