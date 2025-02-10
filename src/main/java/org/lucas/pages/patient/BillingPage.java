@@ -13,6 +13,7 @@ import org.lucas.ui.framework.views.ListViewOrientation;
 import org.lucas.ui.framework.views.TextView;
 
 import java.util.List;
+import java.util.Scanner;
 
 public class BillingPage extends UiBase {
     public static List<Appointment> appointments;
@@ -24,41 +25,85 @@ public class BillingPage extends UiBase {
     @Override
     public void OnViewCreated(View parentView) {
         ListView listView = (ListView) parentView;
-        if (appointments == null) {
-            // If appointments is null, retrieve the concluded appointments for the active patient
-            appointments = Globals.appointmentController.getAppointments()
-                    .stream()
-                    .filter(appointment -> appointment.getPatient().getId().equals(UserController.getActivePatient().getId()))
-                    .filter(appointment -> appointment.getAppointmentStatus() == AppointmentStatus.COMPLETED)
-                    .toList();
-        }
+        listView.attachUserInput("Select Appointment Index", str->{
+            Scanner scanner = new Scanner(System.in);
+            // get the valid indices (size of list)
+            boolean validInput = false;
+            int selectedIndex = -1;
+            while (!validInput) {
+                System.out.println("Select an index (0 - " + (appointments.size() - 1) + ")");
+                selectedIndex = scanner.nextInt();
+                if(selectedIndex >= 0 && selectedIndex < appointments.size()) {
+                    validInput = true;
+                    break;
+                }
+            }
+
+            Appointment selectedAppointment = appointments.get(selectedIndex);
+            scanner = new Scanner(System.in);
+            // get the valid indices ( 1 and 2 )
+            boolean validInput1 = false;
+            int selectedIndex1 = -1;
+            while (!validInput1) {
+                System.out.println("Select options: 1. Pay Bill (simulated) | 2. View Appointment Summary");
+                selectedIndex1 = scanner.nextInt();
+                if(selectedIndex1 > 0 && selectedIndex1 < 3) {
+                    validInput1 = true;
+                    break;
+                }
+            }
+
+            switch(selectedIndex1) {
+                case 1:
+                    System.out.println("Processing payment (simulated)...");
+                    selectedAppointment.getBilling().setPaid(true);
+                    Globals.appointmentController.saveAppointmentsToFile();
+                    System.out.println("Payment success!!");
+                    break;
+                case 2:
+                    System.out.println("Viewing appointment summary...");
+                    ViewAppointmentSummaryPage.setAppointment(selectedAppointment);
+                    ToPage(new ViewAppointmentSummaryPage());
+            }
+        });
+        refreshUi(listView);
+    }
+
+    private void refreshUi(ListView listView) {
+        // If appointments is null, retrieve the concluded appointments for the active patient
+        appointments = Globals.appointmentController.getAppointments()
+                .stream()
+                .filter(appointment -> appointment.getPatient().getId().equals(UserController.getActivePatient().getId()))
+                .filter(appointment -> appointment.getAppointmentStatus() == AppointmentStatus.COMPLETED)
+                .toList();
 
         if (appointments.isEmpty()) {
             listView.addItem(new TextView(this.canvas, "No concluded appointments found for this patient.", Color.RED, TextStyle.BOLD));
         } else {
-            listView.setTitleHeader("Billing Details");
-            ListView rowView = new ListView(this.canvas, Color.BLUE, ListViewOrientation.HORIZONTAL);
-            for (Appointment appointment: appointments) {
-                if(appointment.getBilling() == null){
-                    continue;
+                listView.setTitleHeader("Billing Details");
+                for (int i = 0; i < appointments.size(); i++) {
+                    Appointment appointment = appointments.get(i);
+                    if (appointment.getBilling() == null) {
+                        continue;
+                    }
+                    Color color = getItemColor(appointment.getBilling().isPaid());
+                    ListView rowView = new ListView(this.canvas, Color.BLUE, ListViewOrientation.HORIZONTAL);
+
+                    // Display billing details for each appointment
+                    rowView.addItem(new TextView(this.canvas,
+                            i + ". | Appointment Date: " + appointment.getAppointmentTime().toLocalDate(),
+                            color));
+
+                    rowView.addItem(new TextView(this.canvas,
+                            " | Amount Due: $" + String.format("%.2f",
+                                    appointment.getBilling().getBillAmount()),
+                            color, TextStyle.BOLD));
+
+                    rowView.addItem(new TextView(this.canvas,
+                            " | Payment Status: " + (appointment.getBilling().isPaid() ? "Paid" : "Unpaid"),
+                            color, TextStyle.BOLD));
+                    listView.addItem(rowView);
                 }
-                Color color = getItemColor(appointment.getBilling().isPaid());
-
-                // Display billing details for each appointment
-                rowView.addItem(new TextView(this.canvas,
-                        " | Appointment Date: " + appointment.getAppointmentTime().toLocalDate(),
-                        color));
-
-                rowView.addItem(new TextView(this.canvas,
-                        " | Amount Due: $" + String.format("%.2f",
-                                appointment.getBilling().getBillAmount()),
-                        color, TextStyle.BOLD));
-
-                rowView.addItem(new TextView(this.canvas,
-                        " | Payment Status: " + (appointment.getBilling().isPaid()? "Paid": "Unpaid"),
-                        color, TextStyle.BOLD));
-            }
-            listView.addItem(rowView);
         }
         canvas.setRequireRedraw(true);
     }

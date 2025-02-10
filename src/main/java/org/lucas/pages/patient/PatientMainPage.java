@@ -56,7 +56,7 @@ public class PatientMainPage extends UiBase {
 
         lv.attachUserInput("View Billing", str -> {
             BillingPage.appointments = appointmentController.getAppointments();
-            ToPage(new BillingPage()); // TODO CHANGE TO BILLING PAGE
+            ToPage(new BillingPage());
         });
 
 
@@ -145,13 +145,13 @@ public class PatientMainPage extends UiBase {
         LocalDateTime selectedDateTime = dateTimeDictionary.get(selectedSlot);
 
         System.out.println("You have requested for an appointment on " + formatter.format(selectedDateTime) + " at index " + selectedSlot);
-
         // TODO maybe a y/N prompt, but it is 5am and i am TIRED
 
         Appointment appointment = new Appointment(UserController.getActivePatient(), reason, selectedDateTime, AppointmentStatus.PENDING);
         appointment.setHistory(history);
         appointmentController.addAppointment(appointment);
         appointmentController.saveAppointmentsToFile();
+        canvas.setRequireRedraw(true);
     }
 }
 
