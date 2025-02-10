@@ -34,7 +34,7 @@ public class PatientInfoPage extends UiBase {
         }
         lv.setTitleHeader("List of Patients");
         List<Patient> patients = userController.getPatients();
-        int index = 1;
+        int index = 0;
 
         // Show list of patient
         for (Patient patient : patients) {
@@ -48,14 +48,21 @@ public class PatientInfoPage extends UiBase {
             boolean validInput = false;
             int selectedIndex = -1;
             while (!validInput) {
-                System.out.println("Select an index (1 - " + patients.size() + ")");
+                scanner = new Scanner(System.in);
+                System.out.println("Select an index (1 - " + (patients.size()) + ")");
                 selectedIndex = scanner.nextInt();
                 if (selectedIndex >= 0 && selectedIndex < patients.size()) {
                     validInput = true;
                     break;
                 }
             }
-            displayPatient(patient, lv);
+            patient = patients.get(selectedIndex);
+            try {
+                displayPatient(patient, lv);
+            }catch (Exception e){
+                e.printStackTrace();
+                throw e;
+            }
         });
     }
 

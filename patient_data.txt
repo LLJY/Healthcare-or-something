@@ -77,7 +77,7 @@
       "consent_given": false,
       "consent_terms": ""
     },
-    "address": "Blk 789, Tampines St 81, #03-9012, Singapore 520789",
+    "address": "Blk 369, Tampines St 81, #03-9012, Singapore 520789",
     "next_of_kin_name": "Siti Kun",
     "id": "P003",
     "login_name": "annaqi",

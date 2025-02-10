@@ -64,7 +64,7 @@ public class TeleconsultPage extends UiBase {
             refreshUi();
         });
 
-        lv.attachUserInput("Set Prescription", str -> {
+        lv.attachUserInput("Edit Prescription", str -> {
             int selectedIndex = selectMedicineIndexPrompt();
             if(selectedIndex == -1){
                 refreshUi();
@@ -210,8 +210,9 @@ public class TeleconsultPage extends UiBase {
             List<Medicine> medicines = prescription.getMedicines();
             if (medicines != null && !medicines.isEmpty()) {
                 listView.addItem(new TextView(this.canvas, "Prescription:", Color.BLUE, TextStyle.BOLD));
-                for (Medicine medicine : medicines) {
-                    listView.addItem(new TextView(this.canvas, "  - " + medicine.getMedName() + " x " + medicine.getMedQuantity() + " | Dosage: " + medicine.getMedDosage(), Color.GREEN));
+                for (int i =0; i < medicines.size(); i++) {
+                    Medicine medicine = medicines.get(i);
+                    listView.addItem(new TextView(this.canvas, i + ".  - " + medicine.getMedName() + " x " + medicine.getMedQuantity() + " | Dosage: " + medicine.getMedDosage(), Color.GREEN));
                 }
             }
         }
