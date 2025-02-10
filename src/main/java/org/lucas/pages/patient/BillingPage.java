@@ -45,9 +45,9 @@ public class BillingPage extends UiBase {
             boolean validInput1 = false;
             int selectedIndex1 = -1;
             while (!validInput1) {
-                System.out.println("Select options: 1. Pay Bill (simulated) | 2. View Appointment Summary");
+                System.out.println("Select options: 1. Pay Bill (simulated) | 2. View Appointment Summary | 3. Generate Itemised Bill");
                 selectedIndex1 = scanner.nextInt();
-                if(selectedIndex1 > 0 && selectedIndex1 < 3) {
+                if(selectedIndex1 > 0 && selectedIndex1 < 4) {
                     validInput1 = true;
                     break;
                 }

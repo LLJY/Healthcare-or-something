@@ -5,6 +5,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import org.lucas.controllers.AppointmentController;
 import org.lucas.controllers.UserController;
+import org.lucas.pages.LoginPage;
 import org.lucas.pages.doctor.*;
 
 /**

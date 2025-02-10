@@ -1,7 +1,8 @@
-package org.lucas.pages.doctor;
+package org.lucas.pages;
 
 import org.lucas.controllers.UserController;
 import org.lucas.models.enums.UserType;
+import org.lucas.pages.doctor.DoctorMainPage;
 import org.lucas.pages.patient.PatientMainPage;
 import org.lucas.ui.framework.Color;
 import org.lucas.ui.framework.UiBase;
@@ -54,11 +55,13 @@ public class LoginPage extends UiBase { // This is the class that represents the
             // Check credential for Doctors / Patient
             if (UserType.DOCTOR == userController.authenticate(username, password)) {
                 System.out.println("Login successful!");
-                ToPage(new DoctorMainPage()); // TODO MAKE THIS NAVIGATE TO DOCTOR MAIN PAGE
+                ToPage(new DoctorMainPage());
             } else if (UserType.PATIENT == userController.authenticate(username, password)) {
                 System.out.println("Login successful!");
-                ToPage(new PatientMainPage());   // TODO MAKE THIS NAVIGATE TO PATIENT MAIN PAGE
+                ToPage(new PatientMainPage());
             } else { System.out.println("Invalid username or password!"); }
+
+            canvas.setRequireRedraw(true);
             });
         canvas.setRequireRedraw(true);
     }
