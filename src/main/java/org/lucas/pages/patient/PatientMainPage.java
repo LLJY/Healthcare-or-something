@@ -2,6 +2,7 @@ package org.lucas.pages.patient;
 
 import org.lucas.controllers.UserController;
 import org.lucas.models.Appointment;
+import org.lucas.models.PatientConsent;
 import org.lucas.models.enums.AppointmentStatus;
 import org.lucas.ui.framework.Color;
 import org.lucas.ui.framework.InputHelper;
@@ -130,8 +131,35 @@ public class PatientMainPage extends UiBase {
         LocalDateTime selectedDateTime = dateTimeDictionary.get(selectedSlot);
 
         System.out.println("You have requested for an appointment on " + formatter.format(selectedDateTime) + " at index " + selectedSlot);
-
         Appointment appointment = new Appointment(UserController.getActivePatient(), reason, selectedDateTime, AppointmentStatus.PENDING);
+        // check if consent is already given before asking.
+        if(UserController.getActivePatient().getPatientConsent() == null || !UserController.getActivePatient().getPatientConsent().isConsentGiven()) {
+            String consentString = "Telemedicine Consent Form\n\n" +
+                    "Purpose: This telemedicine session is for a general checkup.\n\n" +
+                    "Procedure:  This session will use live video and audio to connect you with the provider.  You may be asked to share information about your health, and the provider may provide advice or recommendations.\n\n" +
+                    "Recording: This session will not be recorded. If this session is recorded for any purpose, it will be made known to you and separate verbal consent will be required during the call.\n\n" +
+                    "Confidentiality: Your personal health information is protected by Singapore privacy laws.  We will take reasonable steps to protect your privacy.\n\n" +
+                    "Risks and Limitations: Telemedicine is not a substitute for in-person care.  Some conditions cannot be diagnosed or treated remotely.  Technical issues (e.g., poor internet connection) may affect the quality of the session.  In case of an emergency, please call 911 or go to the nearest emergency room.\n\n" +
+                    "Alternatives: You have the option to schedule an in-person appointment instead of using telemedicine.\n\n" +
+                    "Rights: You have the right to refuse or withdraw consent at any time. You have the right to ask questions about this session and your health information.\n\n" +
+                    "By Agreeing, you confirm that you have read, understood, and agree to the terms of this telemedicine consent. \n\n(Y/N)";
+            System.out.println(consentString);
+            boolean validInput = false;
+            while (!validInput) {
+                System.out.println("Do you wish to proceed with this appointment? (Y/N)");
+                String s = scanner.nextLine();
+                if (s.equalsIgnoreCase("Y")) {
+                    validInput = true;
+                } else if (s.equalsIgnoreCase("N")) {
+                    System.out.println("Consent not recieved, terminating session. Your information will not be saved.");
+                    canvas.setRequireRedraw(true);
+                    return;
+                }
+            }
+
+            // set the consent.
+            appointment.getPatient().setPatientConsent(new PatientConsent(true, consentString));
+        }
         appointment.setHistory(history);
         appointmentController.addAppointment(appointment);
         appointmentController.saveAppointmentsToFile();
