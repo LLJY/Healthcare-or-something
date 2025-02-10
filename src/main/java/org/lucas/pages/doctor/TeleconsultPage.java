@@ -19,23 +19,12 @@ import java.util.List;
 import java.util.Scanner;
 
 public class TeleconsultPage extends UiBase {
-    private String notes = "";
     private static Appointment appointment;
     private ListView listView;
 
     public static void setAppointment(Appointment appointment) {
         TeleconsultPage.appointment = appointment;
     }
-// ViewAppointmentsPage -> static appointment -> ToPage Teleconsult.
-    // Teleconsult execute the whole teleconsult,
-    // 1. if zoomlink doesn't exist, create it
-    // 2. display and manage doctor notes
-//    3. display and manage patient information
-    // 3a. display medicines information
-    // 4. add medicines to prescription
-    // 5. end consult
-    // 6. (optional) add MC (shouldn't be too hard.)
-    // 7. (end consult) -> go to billing page
 
     @Override
     public View OnCreateView() {
