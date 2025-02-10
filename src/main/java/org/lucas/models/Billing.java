@@ -92,7 +92,6 @@ public class Billing implements ObjectBase {
     public void setPrescriptions(){
         this.prescription = new Prescription();
     }
-
     public Prescription getPrescription(){
         return this.prescription;
     }
@@ -116,8 +115,6 @@ public class Billing implements ObjectBase {
         billDetails.append("Payment Status: ").append(isPaid ? "Paid" : "Unpaid").append("\n");
         return billDetails.toString();
     }
-
-    //Prescription
 
     @Override
     public String toString() {

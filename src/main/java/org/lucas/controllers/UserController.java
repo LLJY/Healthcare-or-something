@@ -42,7 +42,6 @@ public class UserController {
      * Loads users (Patients and Doctors) from files specified by patientFileName and doctorFileName.
      * This method first clears the current list of users, then loads patients from the patientFileName
      * and subsequently loads doctors from the doctorFileName, adding them to the users list.
-     *
      * The files are expected to contain JSON representations of lists of Patient and Doctor objects, respectively.
      * If a file does not exist or an error occurs during reading or parsing, an error message is logged, and loading from that file is skipped.
      * Note: This method replaces the entire existing list of users.*/
