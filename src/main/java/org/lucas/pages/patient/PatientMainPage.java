@@ -25,6 +25,7 @@ import static org.lucas.Globals.appointmentController;
  * This page displays a menu of options for the user to navigate to different sections of the application.
  * It extends {@link UiBase} and uses a {@link ListView} to present the menu items.*/
 public class PatientMainPage extends UiBase {
+    ListView listView;
 
     /** Called when the main page's view is created.
      * Creates a {@link ListView} to hold the main menu options.
@@ -35,6 +36,7 @@ public class PatientMainPage extends UiBase {
     @Override
     public View OnCreateView() {
         ListView lv = new ListView(this.canvas, Color.GREEN);
+        listView = lv;
         return lv;
     }
 
@@ -93,9 +95,6 @@ public class PatientMainPage extends UiBase {
                 System.out.println("Invalid date format. Please enter a date in the format (DD-MM-YYYY):");
             }
         }
-
-        // tze kai I changed your timeslots to a dictionary instead.
-        List<String> timeSlots = Arrays.asList("1. 8:00", "2. 9:00", "3. 10:00", "4. 11:00", "5. 12:00", "6. 13:00", "7. 14:00", "8. 15:00", "9. 16:00");
 
         Dictionary<Integer, LocalDateTime> dateTimeDictionary = new Hashtable<>();
         // start the timeslot at 8:00am
