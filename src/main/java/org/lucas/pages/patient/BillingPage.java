@@ -4,10 +4,7 @@ import org.lucas.Globals;
 import org.lucas.controllers.UserController;
 import org.lucas.models.Appointment;
 import org.lucas.models.enums.AppointmentStatus;
-import org.lucas.ui.framework.Color;
-import org.lucas.ui.framework.TextStyle;
-import org.lucas.ui.framework.UiBase;
-import org.lucas.ui.framework.View;
+import org.lucas.ui.framework.*;
 import org.lucas.ui.framework.views.ListView;
 import org.lucas.ui.framework.views.ListViewOrientation;
 import org.lucas.ui.framework.views.TextView;
@@ -26,32 +23,12 @@ public class BillingPage extends UiBase {
     public void OnViewCreated(View parentView) {
         ListView listView = (ListView) parentView;
         listView.attachUserInput("Select Appointment Index", str->{
-            Scanner scanner = new Scanner(System.in);
-            // get the valid indices (size of list)
-            boolean validInput = false;
-            int selectedIndex = -1;
-            while (!validInput) {
-                System.out.println("Select an index (0 - " + (appointments.size() - 1) + ")");
-                selectedIndex = scanner.nextInt();
-                if(selectedIndex >= 0 && selectedIndex < appointments.size()) {
-                    validInput = true;
-                    break;
-                }
-            }
 
+            int selectedIndex = InputHelper.getValidIndex("Select Appointment index", appointments);
             Appointment selectedAppointment = appointments.get(selectedIndex);
-            scanner = new Scanner(System.in);
-            // get the valid indices ( 1 and 2 )
-            boolean validInput1 = false;
-            int selectedIndex1 = -1;
-            while (!validInput1) {
-                System.out.println("Select options: 1. Pay Bill (simulated) | 2. View Appointment Summary | 3. Generate Itemised Bill");
-                selectedIndex1 = scanner.nextInt();
-                if(selectedIndex1 > 0 && selectedIndex1 < 4) {
-                    validInput1 = true;
-                    break;
-                }
-            }
+
+            System.out.println("Select options: 1. Pay Bill (simulated) | 2. View Appointment Summary | 3. Generate Itemised Bill");
+            int selectedIndex1 = InputHelper.getValidIndex("Select Option", 1, 3);
 
             switch(selectedIndex1) {
                 case 1:

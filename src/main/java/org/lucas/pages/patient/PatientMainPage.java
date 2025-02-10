@@ -7,6 +7,7 @@ import org.lucas.models.Appointment;
 import org.lucas.models.enums.AppointmentStatus;
 import org.lucas.pages.doctor.ViewAppointmentsPage;
 import org.lucas.ui.framework.Color;
+import org.lucas.ui.framework.InputHelper;
 import org.lucas.ui.framework.UiBase;
 import org.lucas.ui.framework.View;
 import org.lucas.ui.framework.views.ListView;
@@ -125,26 +126,16 @@ public class PatientMainPage extends UiBase {
         }
         sb.append("]");
         System.out.println(sb); // Convert StringBuilder to String and print
+
+
         System.out.print("Select your appointment timeslot (1-" + dateTimeDictionary.size() + "): ");
         scanner = new Scanner(System.in);
 
-        int selectedSlot = -1; // Initialize to an invalid value
-        while (selectedSlot < 1 || selectedSlot > dateTimeDictionary.size()) {
-            if (scanner.hasNextInt()) {
-                selectedSlot = scanner.nextInt();
-                if (selectedSlot < 1 || selectedSlot > dateTimeDictionary.size()) {
-                    System.out.println("Invalid timeslot. Please enter a number between 1 and " + dateTimeDictionary.size() + ":");
-                }
-            } else {
-                System.out.println("Invalid input. Please enter a number:");
-                scanner.next(); // Clear the invalid input
-            }
-        }
+        int selectedSlot = InputHelper.getValidIndex("Select your appointment timeslot", 1, dateTimeDictionary.size());
 
         LocalDateTime selectedDateTime = dateTimeDictionary.get(selectedSlot);
 
         System.out.println("You have requested for an appointment on " + formatter.format(selectedDateTime) + " at index " + selectedSlot);
-        // TODO maybe a y/N prompt, but it is 5am and i am TIRED
 
         Appointment appointment = new Appointment(UserController.getActivePatient(), reason, selectedDateTime, AppointmentStatus.PENDING);
         appointment.setHistory(history);

@@ -3,6 +3,7 @@ package org.lucas.pages.doctor;
 import org.lucas.controllers.UserController;
 import org.lucas.models.Patient;
 import org.lucas.ui.framework.Color;
+import org.lucas.ui.framework.InputHelper;
 import org.lucas.ui.framework.UiBase;
 import org.lucas.ui.framework.View;
 import org.lucas.ui.framework.views.ListView;
@@ -44,19 +45,9 @@ public class PatientInfoPage extends UiBase {
         
         // When selecting "Select Patient Index"
         lv.attachUserInput("Select Patient Index", str -> {
-            Scanner scanner = new Scanner(System.in);
-            boolean validInput = false;
-            int selectedIndex = -1;
-            while (!validInput) {
-                scanner = new Scanner(System.in);
-                System.out.println("Select an index (1 - " + (patients.size()) + ")");
-                selectedIndex = scanner.nextInt();
-                if (selectedIndex >= 0 && selectedIndex < patients.size()) {
-                    validInput = true;
-                    break;
-                }
-            }
+            int selectedIndex = InputHelper.getValidIndex("Select Patient index", patients);
             patient = patients.get(selectedIndex);
+
             try {
                 displayPatient(patient, lv);
             }catch (Exception e){

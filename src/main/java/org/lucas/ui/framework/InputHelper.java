@@ -8,6 +8,7 @@ public class InputHelper {
     /**
      * Prompts the user to enter an integer index within a specified range.
      * Handles invalid input (non-integer, out-of-range) gracefully.
+     * prompt will be appended as the prefix. i.e. your prompt "Select patient" + " (0 - 6))"
      *
      * @param prompt  The message to display to the user.
      * @param min     The minimum valid index (inclusive).
@@ -28,8 +29,7 @@ public class InputHelper {
 
         while (!validInput) {
             try {
-                System.out.println(prompt);
-                System.out.println("Select an index (" + min + " - " + max + ")");
+                System.out.println(prompt + " (" + min + " - " + max + ")");
                 selectedIndex = scanner.nextInt();
                 scanner.nextLine();
 
@@ -51,8 +51,10 @@ public class InputHelper {
     /**
      * Overloaded getValidIndex to work more seamlessly with List objects.
      * Automatically determines the valid index range based on the list size.
+     * prompt will be appended as the prefix. i.e. your prompt "Select patient" + " (0 - 6))"
      *
      * @param prompt  The message to display to the user.
+     * @param list The list object
      * @return The valid integer index entered by the user.
      */
     public static int getValidIndex(String prompt, List<?> list) {
