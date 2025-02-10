@@ -10,7 +10,6 @@ import org.lucas.ui.framework.views.ListViewOrientation;
 import org.lucas.ui.framework.views.TextView;
 
 import java.util.List;
-import java.util.Scanner;
 
 public class BillingPage extends UiBase {
     public static List<Appointment> appointments;

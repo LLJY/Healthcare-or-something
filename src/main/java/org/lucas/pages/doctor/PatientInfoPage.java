@@ -20,8 +20,7 @@ public class PatientInfoPage extends UiBase {
     public static Patient patient;
     @Override
     public View OnCreateView() {
-        ListView lv = new ListView(this.canvas, Color.GREEN);
-        return lv;
+        return new ListView(this.canvas, Color.GREEN);
     }
 
     @Override
@@ -80,7 +79,4 @@ public class PatientInfoPage extends UiBase {
         PatientInfoPage.patient = null;
     }
 
-    public void refreshUi(){
-
-    }
 }

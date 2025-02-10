@@ -4,8 +4,6 @@ import org.lucas.Globals;
 import org.lucas.controllers.UserController;
 import org.lucas.models.Appointment;
 import org.lucas.models.enums.AppointmentStatus;
-import org.lucas.models.Billing;
-import org.lucas.models.Session;
 import org.lucas.models.enums.UserType;
 import org.lucas.ui.framework.*;
 import org.lucas.ui.framework.views.ListView;
@@ -13,13 +11,9 @@ import org.lucas.ui.framework.views.ListViewOrientation;
 import org.lucas.ui.framework.views.TextView;
 import org.lucas.util.ZoomCreator;
 import org.lucas.util.ZoomOAuth;
-
 import java.io.IOException;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
-import java.util.Scanner;
-
-import static org.lucas.Globals.gsonPrettyPrint;
 
 public class ViewAppointmentsPage extends UiBase {
     ListView listView;
@@ -48,9 +42,7 @@ public class ViewAppointmentsPage extends UiBase {
                 .toList();
 
        // filter the appointments list and only show the appointments that are completed.
-       listView.attachUserInput("Select Patient index", str->{
-           selectAppointmentPrompt(appointments);
-       });
+       listView.attachUserInput("Select Patient index", str-> selectAppointmentPrompt(appointments));
        refreshUi();
     }
 
@@ -58,7 +50,7 @@ public class ViewAppointmentsPage extends UiBase {
         int selectedIndex = InputHelper.getValidIndex("Select Patient index", appointments);
         Appointment selectedAppointment = appointments.get(selectedIndex);
 
-        int selectedIndex1 = -1;
+        int selectedIndex1;
         if(selectedAppointment.getAppointmentStatus() == AppointmentStatus.ACCEPTED){
                 System.out.println("1. Approve appointment | 2. Reject appointment | 3. View Patient Info | 4. Start Appointment");
                 selectedIndex1 = InputHelper.getValidIndex("Select An Option", 1, 4);
@@ -66,22 +58,7 @@ public class ViewAppointmentsPage extends UiBase {
                 System.out.println("1. Approve appointment | 2. Reject appointment | 3. View Patient Info");
                 selectedIndex1 = InputHelper.getValidIndex("Select An Option", 1, 3);
         }
-//        boolean validInput1 = false;
-//        int selectedIndex1 = -1;
-//        while (!validInput1) {
-//            int indexMax = 5;
-//            if(selectedAppointment.getAppointmentStatus() == AppointmentStatus.ACCEPTED){
-//                System.out.println("Select Options: 1. Approve appointment | 2. Reject appointment | 3. View Patient Info | 4. Start Appointment");
-//            }else{
-//                System.out.println("Select Options: 1. Approve appointment | 2. Reject appointment | 3. View Patient Info");
-//                indexMax -= 1;
-//            }
-//            selectedIndex1 = scanner.nextInt();
-//            if(selectedIndex1 >= 0 && selectedIndex1 < indexMax) {
-//                validInput = true;
-//                break;
-//            }
-//        }
+
         switch (selectedIndex1){
             case 1:
                 selectedAppointment.setAppointmentStatus(AppointmentStatus.ACCEPTED);

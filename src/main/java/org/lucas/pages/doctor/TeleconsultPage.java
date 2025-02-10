@@ -71,7 +71,7 @@ public class TeleconsultPage extends UiBase {
         });
 
         lv.attachUserInput("Add Medical Certificate", str->{
-            Scanner scanner = new Scanner(System.in);
+            Scanner scanner;
 
             // according to official government policy, MOM allocates mandatory 14 days MC. Above that, most companies consider it
             // hospitalisation leave. Therefore, telemedicine should not usually provide more than a few days of MC

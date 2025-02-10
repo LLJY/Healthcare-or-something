@@ -1,11 +1,8 @@
 package org.lucas.pages.patient;
 
-import org.lucas.Globals;
-import org.lucas.controllers.AppointmentController;
 import org.lucas.controllers.UserController;
 import org.lucas.models.Appointment;
 import org.lucas.models.enums.AppointmentStatus;
-import org.lucas.pages.doctor.ViewAppointmentsPage;
 import org.lucas.ui.framework.Color;
 import org.lucas.ui.framework.InputHelper;
 import org.lucas.ui.framework.UiBase;
@@ -32,7 +29,7 @@ public class PatientMainPage extends UiBase {
      * Creates a {@link ListView} to hold the main menu options.
      * Sets the title header to "Main".
      * @return A new {@link ListView} instance representing the main page's view.
-     * @Override*/
+     */
 
     @Override
     public View OnCreateView() {
@@ -45,7 +42,7 @@ public class PatientMainPage extends UiBase {
      * Populates the view with the main menu options, such as "View List of Patient", and "View Appointment".
      * Attaches user input handlers to each menu option to navigate to the corresponding pages.
      * @param parentView The parent {@link View} to which the main page's UI elements are added. This should be a ListView.
-     * @Override */
+     */
     @Override
     public void OnViewCreated(View parentView) {
         ListView lv = (ListView) parentView; // Cast the parent view to a list view
@@ -53,9 +50,7 @@ public class PatientMainPage extends UiBase {
         lv.addItem(new TextView(this.canvas, "1. Book Appointment - To schedule appointment to see doctors ", Color.GREEN));
         lv.addItem(new TextView(this.canvas, "2. View Appointment - To view scheduled appointments for teleconsultation ", Color.GREEN));
 
-        lv.attachUserInput("Book Appointment", str -> {
-            bookAppointmentPrompt();
-        });
+        lv.attachUserInput("Book Appointment", str -> bookAppointmentPrompt());
 
         lv.attachUserInput("View Billing", str -> {
             BillingPage.appointments = appointmentController.getAppointments();
@@ -129,7 +124,6 @@ public class PatientMainPage extends UiBase {
 
 
         System.out.print("Select your appointment timeslot (1-" + dateTimeDictionary.size() + "): ");
-        scanner = new Scanner(System.in);
 
         int selectedSlot = InputHelper.getValidIndex("Select your appointment timeslot", 1, dateTimeDictionary.size());
 

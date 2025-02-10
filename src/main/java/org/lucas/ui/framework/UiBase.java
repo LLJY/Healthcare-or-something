@@ -77,7 +77,7 @@ public abstract class UiBase {
 
     /**
      * Navigates to the next page
-     * @param page
+     * @param page the UiBase child class to provide.
      */
     public void ToPage(UiBase page) {
         // dependency inject required objects
