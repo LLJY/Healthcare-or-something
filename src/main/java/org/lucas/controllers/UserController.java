@@ -8,10 +8,15 @@ import org.lucas.models.enums.DoctorType;
 import org.lucas.models.enums.UserType;
 import org.lucas.util.Pair;
 import org.lucas.util.Util;
+
+import javax.crypto.SecretKeyFactory;
+import javax.crypto.spec.PBEKeySpec;
 import java.io.*;
 import java.lang.reflect.Type;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.security.SecureRandom;
+import java.security.spec.KeySpec;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -161,6 +166,39 @@ public class UserController {
             return UserType.PATIENT;
         }
         return UserType.ERROR;
+    }
+
+    public static boolean comparePasswordHash(Pair<byte[], byte[]> hashSalt, String password){
+        return hashPassword(password, hashSalt.second).equals(hashSalt);
+    }
+
+    /**
+     * Static method that hashes the password, and automatically generates the hash
+     * Reference : <a href="https://www.baeldung.com/java-password-hashing">...</a>
+     * @param password The plaintext password
+     * @return a Pair object (first is password hash) (second is password salt)
+     */
+    public static Pair<byte[], byte[]> hashPassword(String password, byte[] salt){
+        SecureRandom random = new SecureRandom();
+        byte[] hash = null;
+        random.nextBytes(salt);
+
+        KeySpec spec = new PBEKeySpec(password.toCharArray(), salt, 65536, 128);
+        SecretKeyFactory factory = null;
+        try {
+            factory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
+            hash = factory.generateSecret(spec).getEncoded();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return new Pair<>(hash, salt);
+    }
+
+    public static byte[] generateRandomPasswordSalt(){
+        SecureRandom random = new SecureRandom();
+        byte[] salt = new byte[16];
+        random.nextBytes(salt);
+        return salt;
     }
 
     /**Gets the active user type.
