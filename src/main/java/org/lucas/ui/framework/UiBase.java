@@ -1,8 +1,6 @@
 package org.lucas.ui.framework;
 
 
-import org.lucas.pages.doctor.NullPage;
-
 public abstract class UiBase {
     protected Canvas canvas;
     // variable to keep track of canvas backstack size, so we know we really went back or not

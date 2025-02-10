@@ -1,4 +1,4 @@
-package org.lucas.pages.doctor;
+package org.lucas.pages.deprecated;
 
 import org.lucas.ui.framework.Color;
 import org.lucas.ui.framework.UiBase;

@@ -7,6 +7,9 @@ import org.lucas.controllers.AppointmentController;
 import org.lucas.controllers.UserController;
 import org.lucas.pages.LoginPage;
 import org.lucas.pages.doctor.*;
+import org.lucas.pages.deprecated.ScheduleNext;
+import org.lucas.pages.deprecated.ViewScheduleSessionPage;
+import org.lucas.pages.deprecated.ZoomMeetingPage;
 
 /**
  * Our project is far too small to warrant any complex Dependency Injection.

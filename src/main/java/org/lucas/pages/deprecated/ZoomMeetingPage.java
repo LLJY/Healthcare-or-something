@@ -1,4 +1,4 @@
-package org.lucas.pages.doctor;
+package org.lucas.pages.deprecated;
 import org.lucas.util.ZoomCreator;
 import org.lucas.util.ZoomOAuth;
 import org.lucas.ui.framework.Color;
