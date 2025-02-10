@@ -101,8 +101,7 @@ public class ViewAppointmentsPage extends UiBase {
                             1, // Duration in minutes
                             "UTC" // Timezone
                     );
-                    selectedAppointment.setSession(new Session(joinUrl));
-                    selectedAppointment.setBilling(new Billing());
+                    selectedAppointment.approveAppointment(UserController.getActiveDoctor(), joinUrl);
                     Globals.appointmentController.saveAppointmentsToFile();
                 }catch (IOException e){
                     System.out.println("Error generating zoom link");
