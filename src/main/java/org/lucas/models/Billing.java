@@ -70,6 +70,10 @@ public class Billing implements ObjectBase {
         }
     }
 
+    /**
+     * Getter method that lazily calculates the Bill amount when needed
+     * @return the bill amount
+     */
     public double getBillAmount() {
         if(billAmount == 0.0){
             calculateBillAmount();
@@ -94,12 +98,18 @@ public class Billing implements ObjectBase {
         return this.prescription;
     }
 
-    //to generate template of bill
+    /**
+     * Generates a String of an itemised bill for the user to look through.
+     * @return a String itemised bill,
+     */
     public String generateBillString() {
+        // Use string builder when concatenating an unknown/large number of strings
         StringBuilder billDetails = new StringBuilder();
         billDetails.append("Bill ID: ").append(billingID).append("\n");
         billDetails.append("----------------------------------------\n");
         billDetails.append("Prescribed Medicines:\n");
+
+        // loop through the medication to itemise it.
         for (Medicine medicine : prescription.getMedicines()) {
             billDetails.append("  - ").append(medicine.getMedName())
                     .append(" (Qty: ").append(medicine.getMedQuantity())
