@@ -5,6 +5,10 @@ import org.lucas.util.ObjectBase;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
+/**
+ * Represents a medical certificate. Medical certificates in Singapore are usually simple.
+ * Consisting of startDate, endDate, id and any additional remarks from the doctor.
+ */
 public class MedicalCertificate implements ObjectBase {
     private String id;
     private LocalDateTime startDate;

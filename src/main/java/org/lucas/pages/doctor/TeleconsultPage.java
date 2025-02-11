@@ -179,7 +179,7 @@ public class TeleconsultPage extends UiBase {
 
         // "null" looks ugly haha
         String doctorNotes = appointment.getDoctorNotes() == null ? "Not yet set" : appointment.getDoctorNotes();
-        listView.addItem(new TextView(this.canvas, "Doctor Notes: " + doctorNotes, Color.CYAN, TextStyle.ITALIC));
+        listView.addItem(new TextView(this.canvas, "Doctor Notes/Follow up: " + doctorNotes, Color.CYAN, TextStyle.ITALIC));
 
         // Add prescription details
         Prescription prescription = appointment.getBilling().getPrescription();

@@ -21,6 +21,10 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Controller class that stores the logged in user. Can be either a {@link Doctor} or {@link Patient}.
+ * As well as login logic and stores/loads the users to a JSON file for persistence.
+ */
 public class UserController {
     private static List<User> users = new ArrayList<>();
     private static final String doctorFileName = "doctor_data.txt";

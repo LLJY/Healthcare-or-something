@@ -9,19 +9,32 @@ package org.lucas.models;
  * The class maintains a static list of available medicines, which is loaded from and saved to
  * a file. This allows the application to retain medicine information across sessions.
 */
-
 public class Medicine {
     private String medName;
     private double medPrice = 0.0;
     private int medQuantity;
     private String medDosage;
 
+    /**
+     * Constructor overload that does not specify price, this is used for unknown/new medicines.
+     * There are impossibly many medicines to track, therefore this is important.
+     * @param medicineName The name of the medicine
+     * @param quantity The amount to prescribe
+     * @param dosage The dosage instructions
+     */
     public Medicine(String medicineName, int quantity, String dosage) {
         this.medName = medicineName;
         this.medQuantity = quantity;
         this.medDosage = dosage;
     }
 
+    /**
+     * Constructor overload that specifies the medicine price (for known medicines)
+     * @param medicineName The name of the medicine
+     * @param quantity The amount to prescribe
+     * @param dosage The dosage instructions
+     * @param medPrice The price of the medicine (optional)
+     */
     public Medicine(String medicineName, int quantity, String dosage, double medPrice) {
         this.medPrice = medPrice;
         this.medName = medicineName;

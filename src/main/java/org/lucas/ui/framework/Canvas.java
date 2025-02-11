@@ -7,7 +7,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
-// handles page rendering, pass it a view and it should render.
+/** handles page rendering, lifecycle, and callbacks (application exit and onbackpressed callbacks).
+ * Also handles view backstack, but backstack management will be removed from canvas in the near future.
+ */
 public class Canvas {
     private Terminal terminal;
     private Stack<View> canvasBackstack;

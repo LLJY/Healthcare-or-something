@@ -27,6 +27,7 @@ public class Appointment implements ObjectBase {
     private String doctorNotes;
     private Billing billing;
     private MedicalCertificate mc;
+
     /**
      * Constructs a new Appointment with the specified details.
      *
@@ -35,7 +36,6 @@ public class Appointment implements ObjectBase {
      *  @param appointmentTime the time the appointment is scheduled
      *  @param appointmentStatus the initial status of the appointment
      */
-
     public Appointment(Patient patient, String reason, LocalDateTime appointmentTime, AppointmentStatus appointmentStatus) {
             this.patient = patient;
             this.reason = reason;

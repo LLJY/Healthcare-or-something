@@ -96,35 +96,4 @@ public class Prescription implements ObjectBase {
 
         medicines.remove(index);
     }
-
-//    public void setPrescriptions(){
-//        this.prescription = new Prescription();
-//    }
-//
-//    public void addMedicinesToPrescription(Scanner scanner) {
-//        Medicine.listAvailableMedicines(); //List down available meds
-//
-//        while (true) {
-//            System.out.print("Enter medicine name (or 'done' to finish): ");
-//            String medicineName = scanner.nextLine();
-//
-//            if (medicineName.equalsIgnoreCase("done")) {
-//                break;
-//            }
-//
-//            System.out.print("Enter quantity: ");
-//            int quantity;
-//            try {
-//                quantity = Integer.parseInt(scanner.nextLine());
-//            } catch (NumberFormatException e) {
-//                System.out.println("Invalid quantity. Please enter a number.");
-//                continue;
-//            }
-//
-//            System.out.print("Enter dosage (e.g., 500mg): ");
-//            String dosage = scanner.nextLine();
-//
-//            prescription.addMedicine(medicineName, quantity, dosage);
-//        }
-//    }
 }

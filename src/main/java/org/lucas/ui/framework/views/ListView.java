@@ -7,6 +7,9 @@ import org.lucas.ui.framework.View;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Simple view that renders a list of child views. Can be used both vertically and horizontally.
+ */
 public class ListView extends View {
     protected List<View> views = new ArrayList<>();
     protected ListViewOrientation orientation = ListViewOrientation.VERTICAL;

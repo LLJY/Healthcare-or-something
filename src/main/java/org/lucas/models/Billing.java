@@ -14,6 +14,7 @@ public class Billing implements ObjectBase {
     private double billAmount;
     private String billingID;
     private boolean isPaid;
+    private boolean isReCalculateBillAmount = true;
     private Prescription prescription; //to get list of prescribed medicine
 
     /**
@@ -57,22 +58,24 @@ public class Billing implements ObjectBase {
         if(doctor.getType() == DoctorType.SPECIALIST){
             this.billAmount = 50.0;
         }
+        isReCalculateBillAmount = true;
     }
 
-    /**
-     * loops through every medicine in list of medicines
-     * from prescription class
-     * to calculate total medicinal bill
-     */
+
     private void calculateBillAmount() {
         for (Medicine medicine : prescription.getMedicines()) {
             this.billAmount += medicine.getMedPrice() * medicine.getMedQuantity();
         }
     }
 
+    /**
+     * loops through every medicine in list of medicines from prescription class
+     * to calculate total medicinal bill
+     */
     public double getBillAmount() {
-        if(billAmount == 0.0){
+        if(isReCalculateBillAmount){
             calculateBillAmount();
+            isReCalculateBillAmount = false;
         }
         return billAmount;
     }
@@ -94,12 +97,18 @@ public class Billing implements ObjectBase {
         return this.prescription;
     }
 
-    //to generate template of bill
+    /**
+     * Generates a String of an itemised bill for the user to look through.
+     * @return a String itemised bill,
+     */
     public String generateBillString() {
+        // Use string builder when concatenating an unknown/large number of strings
         StringBuilder billDetails = new StringBuilder();
         billDetails.append("Bill ID: ").append(billingID).append("\n");
         billDetails.append("----------------------------------------\n");
         billDetails.append("Prescribed Medicines:\n");
+
+        // loop through the medication to itemise it.
         for (Medicine medicine : prescription.getMedicines()) {
             billDetails.append("  - ").append(medicine.getMedName())
                     .append(" (Qty: ").append(medicine.getMedQuantity())

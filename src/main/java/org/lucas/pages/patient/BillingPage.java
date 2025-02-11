@@ -10,6 +10,7 @@ import org.lucas.ui.framework.views.ListViewOrientation;
 import org.lucas.ui.framework.views.TextView;
 
 import java.util.List;
+import java.util.Scanner;
 
 public class BillingPage extends UiBase {
     public static List<Appointment> appointments;
@@ -35,17 +36,31 @@ public class BillingPage extends UiBase {
                     selectedAppointment.getBilling().setPaid(true);
                     Globals.appointmentController.saveAppointmentsToFile();
                     System.out.println("Payment success!!");
+                    System.out.println("Press Enter to exit...");
+                    Scanner scanner = new Scanner(System.in);
+                    scanner.nextLine();
+                    refreshUi(listView);
                     break;
                 case 2:
                     System.out.println("Viewing appointment summary...");
                     ViewAppointmentSummaryPage.setAppointment(selectedAppointment);
                     ToPage(new ViewAppointmentSummaryPage());
+                    break;
+                case 3:
+                    System.out.println("Generating Itemised Bill...");
+                    String bill = selectedAppointment.getBilling().generateBillString();
+                    System.out.println(bill);
+                    System.out.println("Press Enter to exit...");
+                    scanner = new Scanner(System.in);
+                    scanner.nextLine();
+                    break;
             }
         });
         refreshUi(listView);
     }
 
     private void refreshUi(ListView listView) {
+        listView.clear();
         // If appointments is null, retrieve the concluded appointments for the active patient
         appointments = Globals.appointmentController.getAppointments()
                 .stream()
@@ -59,7 +74,7 @@ public class BillingPage extends UiBase {
                 listView.setTitleHeader("Billing Details");
                 for (int i = 0; i < appointments.size(); i++) {
                     Appointment appointment = appointments.get(i);
-                    if (appointment.getBilling() == null) {
+                    if (appointment.getBilling() == null || appointment.getBilling().isPaid()) {
                         continue;
                     }
                     Color color = getItemColor(appointment.getBilling().isPaid());
