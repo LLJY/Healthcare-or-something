@@ -173,7 +173,7 @@ public class Canvas {
             terminal.flush();
             // start the scanner
             String response = terminal.getUserInput();
-            Integer responseInt = -1;
+            int responseInt = -1;
             try{
                 responseInt = Integer.parseInt(response);
             }catch (Exception e){

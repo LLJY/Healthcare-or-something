@@ -3,10 +3,8 @@ package org.lucas.models;
 import org.lucas.models.enums.DoctorType;
 import org.lucas.util.ObjectBase;
 
-import java.util.ArrayList;
 import java.util.UUID;
-import java.util.List;
-import java.util.Scanner;
+
 /**
  * Represents the billing information associated with a medical treatment or service.
  * This class handles details such as the total bill amount, a unique billing ID, payment status, and a prescription associated with the billing.

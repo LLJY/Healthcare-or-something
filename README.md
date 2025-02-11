@@ -61,3 +61,6 @@ public class MyView extends UiBase {
 Feel free to contribute to this project by submitting pull requests or reporting issues.
 Refer to the styleguide [**here**](https://docs.google.com/document/d/1oQZtgl1YLNz4zDecadRudJOaQCh9SY2zP-HBpRrb8YU/edit?usp=sharing
 ):
+
+## Remember this if you ever encounter an error in our app:
+![A QA Engineer](img.png)

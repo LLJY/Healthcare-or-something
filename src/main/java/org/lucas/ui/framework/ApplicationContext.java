@@ -1,7 +1,5 @@
 package org.lucas.ui.framework;
 
-import org.lucas.pages.doctor.NullPage;
-
 import java.util.Stack;
 
 /**

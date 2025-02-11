@@ -1,8 +1,5 @@
-package org.lucas.pages.doctor;
+package org.lucas.ui.framework;
 
-import org.lucas.ui.framework.Color;
-import org.lucas.ui.framework.UiBase;
-import org.lucas.ui.framework.View;
 import org.lucas.ui.framework.views.TextView;
 
 /**

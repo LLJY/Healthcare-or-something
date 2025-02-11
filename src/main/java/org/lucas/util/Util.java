@@ -1,9 +1,6 @@
 package org.lucas.util;
 
-import org.lucas.models.Appointment;
-
 import java.lang.reflect.Type;
-import java.util.List;
 
 import static org.lucas.Globals.gson;
 

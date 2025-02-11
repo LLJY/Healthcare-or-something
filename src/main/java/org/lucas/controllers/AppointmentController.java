@@ -3,7 +3,6 @@ import com.google.gson.reflect.TypeToken;
 import org.lucas.Globals;
 import org.lucas.models.*;
 import org.lucas.models.enums.AppointmentStatus;
-import org.lucas.models.enums.DoctorType;
 import org.lucas.util.Pair;
 import org.lucas.util.Util;
 
