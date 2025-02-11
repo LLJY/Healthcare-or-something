@@ -142,7 +142,8 @@ public class PatientMainPage extends UiBase {
                     "Risks and Limitations: Telemedicine is not a substitute for in-person care.  Some conditions cannot be diagnosed or treated remotely.  Technical issues (e.g., poor internet connection) may affect the quality of the session.  In case of an emergency, please call 911 or go to the nearest emergency room.\n\n" +
                     "Alternatives: You have the option to schedule an in-person appointment instead of using telemedicine.\n\n" +
                     "Rights: You have the right to refuse or withdraw consent at any time. You have the right to ask questions about this session and your health information.\n\n" +
-                    "By Agreeing, you confirm that you have read, understood, and agree to the terms of this telemedicine consent. \n\n(Y/N)";
+                    "By Agreeing, you confirm that you have read, understood, and agree to the terms of this telemedicine consent (Y/N). \n\n" +
+                    "Technical requirements: A laptop or mobile device (such as phone or tablet) with Zoom Meetings app installed";
             System.out.println(consentString);
             boolean validInput = false;
             while (!validInput) {

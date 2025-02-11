@@ -14,6 +14,7 @@ public class Billing implements ObjectBase {
     private double billAmount;
     private String billingID;
     private boolean isPaid;
+    private boolean isReCalculateBillAmount = true;
     private Prescription prescription; //to get list of prescribed medicine
 
     /**
@@ -57,13 +58,10 @@ public class Billing implements ObjectBase {
         if(doctor.getType() == DoctorType.SPECIALIST){
             this.billAmount = 50.0;
         }
+        isReCalculateBillAmount = true;
     }
 
-    /**
-     * loops through every medicine in list of medicines
-     * from prescription class
-     * to calculate total medicinal bill
-     */
+
     private void calculateBillAmount() {
         for (Medicine medicine : prescription.getMedicines()) {
             this.billAmount += medicine.getMedPrice() * medicine.getMedQuantity();
@@ -71,12 +69,13 @@ public class Billing implements ObjectBase {
     }
 
     /**
-     * Getter method that lazily calculates the Bill amount when needed
-     * @return the bill amount
+     * loops through every medicine in list of medicines from prescription class
+     * to calculate total medicinal bill
      */
     public double getBillAmount() {
-        if(billAmount == 0.0){
+        if(isReCalculateBillAmount){
             calculateBillAmount();
+            isReCalculateBillAmount = false;
         }
         return billAmount;
     }
