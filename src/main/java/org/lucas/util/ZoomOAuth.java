@@ -6,12 +6,20 @@ import com.google.gson.JsonParser;
 import java.io.IOException;
 import java.util.Base64;
 
+/**
+ * Utility class that provides the access token for the zoom meeting.
+ */
 public class ZoomOAuth {
     private static final String ACCOUNT_ID = "I3xVw-4USxmYxw15TByvGQ";
     private static final String CLIENT_ID = "yXD3vVutRhKASvzAOzBjIw";
     private static final String CLIENT_SECRET = "DJfAquKIWQ46N9h7i3ODLEUEwZpUKGT4";
     private static final String TOKEN_URL = "https://zoom.us/oauth/token";
 
+    /**
+     * Sends a request to zoom for an oauth token using OKHTTP.
+     * @return The zoom oauth token
+     * @throws IOException throws an ioexception if the server is unreachable
+     */
     public static String getAccessToken() throws IOException {
         OkHttpClient client = new OkHttpClient();
 

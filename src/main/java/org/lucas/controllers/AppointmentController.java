@@ -28,10 +28,6 @@ public class AppointmentController {
     private static List<Appointment> appointments = new ArrayList<>();
     private static final String fileName = "appointments.txt";
 
-    public AppointmentController(){
-
-    }
-
     /**
      * Adds a new appointment to the list and sorts the list of appointments.
      * This method inserts the specified appointment into the static list and then sorts all appointments based on the recent date ,

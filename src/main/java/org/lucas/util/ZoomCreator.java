@@ -5,8 +5,20 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import java.io.IOException;
 
+/**
+ * Utility class which creates a zoom meeting using OKHTTP
+ */
 public class ZoomCreator {
-    // Method to create a Zoom meeting and return the join URL
+
+    /**
+     * Creates a zoom meeting link
+     * @param accessToken the zoom oauth access token.
+     * @param topic the title of the meeting
+     * @param duration the estimated duration of the meeting
+     * @param timezone the specified timezone in UTC
+     * @return zoom meeting link
+     * @throws IOException throws an ioexception if the server is unreachable
+     */
     public static String createZoomMeeting(String accessToken, String topic, int duration, String timezone) throws IOException {
         OkHttpClient client = new OkHttpClient();
 

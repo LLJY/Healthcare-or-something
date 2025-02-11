@@ -4,6 +4,9 @@ import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * Helper class which contains logic to prompt the user for inputs and handles error handling.
+ */
 public class InputHelper {
     /**
      * Prompts the user to enter an integer index within a specified range.
