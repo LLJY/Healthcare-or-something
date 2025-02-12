@@ -161,6 +161,7 @@ public class TeleconsultPage extends UiBase {
     private void refreshUi () {
         listView.clear();
         listView.addItem(new TextView(this.canvas, "Patient Name: " + appointment.getPatient().getName(), Color.GREEN, TextStyle.ITALIC));
+        listView.addItem(new TextView(this.canvas, "Patient Contact No: " + appointment.getPatient().getPhoneNumber(), Color.GREEN, TextStyle.ITALIC));
         listView.addItem(new TextView(this.canvas, "Appointment Time: " + appointment.getAppointmentTime().format(DateTimeFormatter.ofPattern("HH:mm")), Color.GREEN, TextStyle.ITALIC));
         listView.addItem(new TextView(this.canvas, "Zoom link: " + appointment.getSession().getZoomLink(), Color.GREEN, TextStyle.ITALIC));
         listView.addItem(new TextView(this.canvas, "Reason: " + appointment.getReason() + "\n", Color.GREEN, TextStyle.ITALIC));

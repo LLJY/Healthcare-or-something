@@ -36,14 +36,19 @@ public abstract class User implements ObjectBase {
      * The user's specified gender.
      */
     private String gender;
+    /**
+     * The user's phone number
+     */
+    private String phoneNumber;
 
-    public User(String id, String loginName, String name, String password, String email, String gender) {
+    public User(String id, String loginName, String name, String password, String email, String gender, String phoneNumber) {
         this.id = id;
         this.loginName = loginName;
         this.name = name;
         this.password = password;
         this.email = email;
         this.gender = gender;
+        this.phoneNumber = phoneNumber;
     }
 
     /**
@@ -114,6 +119,14 @@ public abstract class User implements ObjectBase {
      */
     public void setGender(String gender) {
         this.gender = gender;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     // override methods

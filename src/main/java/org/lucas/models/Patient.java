@@ -34,8 +34,8 @@ public class Patient extends User implements ObjectBase {
      * @param nextOfKinName The name of the patient's next of kin.
      */
 
-    public Patient(String userID, String userName, String name, String password, String email, String gender, String medicalHistory, String allergies, LocalDateTime dateOfBirth, String address, String nextOfKinName) {
-        super(userID, userName, name, password, email, gender);
+    public Patient(String userID, String userName, String name, String password, String email, String gender, String medicalHistory, String allergies, LocalDateTime dateOfBirth, String address, String nextOfKinName, String phoneNumber) {
+        super(userID, userName, name, password, email, gender, phoneNumber);
         this.medicalHistory = medicalHistory;
         this.allergies = allergies;
         this.dateOfBirth = dateOfBirth;

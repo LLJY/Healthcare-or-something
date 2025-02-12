@@ -6,13 +6,13 @@
       "date": {
         "year": 1996,
         "month": 9,
-        "day": 10
+        "day": 12
       },
       "time": {
-        "hour": 2,
-        "minute": 19,
-        "second": 5,
-        "nano": 290448100
+        "hour": 17,
+        "minute": 54,
+        "second": 41,
+        "nano": 869782900
       }
     },
     "patient_consent": {
@@ -26,7 +26,8 @@
     "name": "Lucas Lee",
     "password": "password123",
     "email": "lucas.lee@example.com",
-    "gender": "Male"
+    "gender": "Male",
+    "phone_number": "8123 4567"
   },
   {
     "medical_history": "History of asthma.",
@@ -35,13 +36,13 @@
       "date": {
         "year": 1992,
         "month": 9,
-        "day": 28
+        "day": 30
       },
       "time": {
-        "hour": 2,
-        "minute": 19,
-        "second": 5,
-        "nano": 290448100
+        "hour": 17,
+        "minute": 54,
+        "second": 41,
+        "nano": 869782900
       }
     },
     "patient_consent": {
@@ -55,7 +56,8 @@
     "name": "Kaiser Yee",
     "password": "securepass",
     "email": "kaiser.yee@example.com",
-    "gender": "Female"
+    "gender": "Female",
+    "phone_number": "9012 3456"
   },
   {
     "medical_history": "Allergic to peanuts.",
@@ -64,26 +66,27 @@
       "date": {
         "year": 2000,
         "month": 11,
-        "day": 25
+        "day": 27
       },
       "time": {
-        "hour": 2,
-        "minute": 19,
-        "second": 5,
-        "nano": 290448100
+        "hour": 17,
+        "minute": 54,
+        "second": 41,
+        "nano": 869782900
       }
     },
     "patient_consent": {
       "consent_given": false,
       "consent_terms": ""
     },
-    "address": "Blk 369, Tampines St 81, #03-9012, Singapore 520789",
+    "address": "Blk 789, Tampines St 81, #03-9012, Singapore 520789",
     "next_of_kin_name": "Siti Kun",
     "id": "P003",
     "login_name": "annaqi",
     "name": "Annaqi Kun",
     "password": "strongpass",
     "email": "annaqi.kun@example.com",
-    "gender": "Female"
+    "gender": "Female",
+    "phone_number": "8765 4321"
   }
 ]

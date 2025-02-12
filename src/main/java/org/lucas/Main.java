@@ -8,7 +8,7 @@ import org.lucas.ui.framework.Canvas;
 public class Main {
 
     public static void main(String[] args) {
-//        Globals.appointmentManager.generateRandomAppointmentData(6);
+         // Globals.appointmentController.generateRandomAppointmentData(6);
         // initialise medicines
         MedicinesController.getAvailableMedicines();
         //create a new canvas

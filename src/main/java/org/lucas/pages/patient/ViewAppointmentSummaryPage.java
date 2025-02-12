@@ -42,6 +42,7 @@ public class ViewAppointmentSummaryPage extends UiBase {
         listView.clear();
         listView.addItem(new TextView(this.canvas, "Attending Doctor Name: " + appointment.getPatient().getName(), Color.BLUE, TextStyle.BOLD));
         listView.addItem(new TextView(this.canvas, "Patient Name: " + appointment.getPatient().getName(), Color.GREEN, TextStyle.ITALIC));
+        listView.addItem(new TextView(this.canvas, "Patient Contact No: " + appointment.getPatient().getPhoneNumber(), Color.GREEN, TextStyle.ITALIC));
         listView.addItem(new TextView(this.canvas, "Appointment Time: " + appointment.getAppointmentTime().format(DateTimeFormatter.ofPattern("HH:mm")), Color.GREEN, TextStyle.ITALIC));
         listView.addItem(new TextView(this.canvas, "Reason: " + appointment.getReason() + "\n", Color.GREEN, TextStyle.ITALIC));
         String MCString = "Medical Certificate not yet given.";

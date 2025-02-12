@@ -1,193 +1,47 @@
 [
   {
     "patient": {
-      "medical_history": "Allergic to peanuts.",
-      "allergies": "Peanuts",
+      "medical_history": "No significant medical history.",
+      "allergies": "",
       "date_of_birth": {
         "date": {
-          "year": 2000,
-          "month": 11,
-          "day": 25
-        },
-        "time": {
-          "hour": 2,
-          "minute": 19,
-          "second": 5,
-          "nano": 290448100
-        }
-      },
-      "patient_consent": {
-        "consent_given": false,
-        "consent_terms": ""
-      },
-      "address": "Blk 789, Tampines St 81, #03-9012, Singapore 520789",
-      "next_of_kin_name": "Siti Kun",
-      "id": "P003",
-      "login_name": "annaqi",
-      "name": "Annaqi Kun",
-      "password": "strongpass",
-      "email": "annaqi.kun@example.com",
-      "gender": "Female"
-    },
-    "reason": "Flu",
-    "appointment_time": {
-      "date": {
-        "year": 2025,
-        "month": 2,
-        "day": 10
-      },
-      "time": {
-        "hour": 4,
-        "minute": 45,
-        "second": 5,
-        "nano": 321993300
-      }
-    },
-    "doctor": {
-      "specialisation": "GP",
-      "type": "GENERAL_PRACTICE",
-      "license_number": "L12345",
-      "id": "D001",
-      "login_name": "limtzekai",
-      "name": "Dr. Lim Tze Kai",
-      "password": "docpass",
-      "email": "limtzekai@clinic.com",
-      "gender": "Male"
-    },
-    "appointment_status": "COMPLETED",
-    "session": {
-      "id": "21e1b1c5-ae8b-4d98-95fe-53d4f613d729",
-      "start_time": {
-        "date": {
-          "year": 2025,
-          "month": 2,
-          "day": 10
-        },
-        "time": {
-          "hour": 18,
-          "minute": 24,
-          "second": 24,
-          "nano": 705414400
-        }
-      },
-      "end_time": {
-        "date": {
-          "year": 2025,
-          "month": 2,
-          "day": 10
-        },
-        "time": {
-          "hour": 18,
-          "minute": 28,
-          "second": 6,
-          "nano": 457560400
-        }
-      },
-      "zoom_link": "https://us05web.zoom.us/j/82101666364?pwd\u003dOMmZyE6DhbJD9fxBThgWvznH89JIGv.1",
-      "session_status": "COMPLETED"
-    },
-    "doctor_notes": "",
-    "billing": {
-      "bill_amount": 0.0,
-      "billing_i_d": "b48c7d71-a21a-4e7e-a656-ca1e54efc028",
-      "is_paid": false,
-      "prescription": {
-        "prescription_i_d": "1bc2be1a-14c9-43b5-9fd5-2bcf719a57bf",
-        "medicines": [
-          {
-            "med_name": "2",
-            "med_price": 0.0,
-            "med_quantity": 2,
-            "med_dosage": "2"
-          },
-          {
-            "med_name": "FENT",
-            "med_price": 0.0,
-            "med_quantity": 22,
-            "med_dosage": "22"
-          },
-          {
-            "med_name": "WEED",
-            "med_price": 0.0,
-            "med_quantity": 100,
-            "med_dosage": "2"
-          }
-        ]
-      }
-    },
-    "mc": {
-      "id": "b69faa63-22de-43d4-b0b9-eedeb3553ee9",
-      "start_date": {
-        "date": {
-          "year": 2025,
-          "month": 2,
-          "day": 10
-        },
-        "time": {
-          "hour": 0,
-          "minute": 0,
-          "second": 0,
-          "nano": 0
-        }
-      },
-      "end_date": {
-        "date": {
-          "year": 2026,
-          "month": 2,
-          "day": 9
-        },
-        "time": {
-          "hour": 23,
-          "minute": 59,
-          "second": 0,
-          "nano": 0
-        }
-      },
-      "remarks": "chaokeng"
-    }
-  },
-  {
-    "patient": {
-      "medical_history": "History of asthma.",
-      "allergies": "Penicillin",
-      "date_of_birth": {
-        "date": {
-          "year": 1992,
+          "year": 1996,
           "month": 9,
-          "day": 28
+          "day": 12
         },
         "time": {
-          "hour": 2,
-          "minute": 19,
-          "second": 5,
-          "nano": 290448100
+          "hour": 17,
+          "minute": 54,
+          "second": 41,
+          "nano": 869782900
         }
       },
       "patient_consent": {
         "consent_given": false,
         "consent_terms": ""
       },
-      "address": "Blk 456, Jurong West St 42, #02-5678, Singapore 640456",
-      "next_of_kin_name": "Peter Yee",
-      "id": "P002",
-      "login_name": "kaiseryee",
-      "name": "Kaiser Yee",
-      "password": "securepass",
-      "email": "kaiser.yee@example.com",
-      "gender": "Female"
+      "address": "Blk 123, Ang Mo Kio Ave 1, #01-1234, Singapore 560123",
+      "next_of_kin_name": "Mary Tan",
+      "id": "P001",
+      "login_name": "lucaslee",
+      "name": "Lucas Lee",
+      "password": "password123",
+      "email": "lucas.lee@example.com",
+      "gender": "Male",
+      "phone_number": "8123 4567"
     },
-    "reason": "Vertigo",
+    "reason": "Migraine",
     "appointment_time": {
       "date": {
         "year": 2025,
         "month": 2,
-        "day": 10
+        "day": 13
       },
       "time": {
         "hour": 5,
-        "minute": 8,
-        "second": 5,
-        "nano": 321993300
+        "minute": 52,
+        "second": 41,
+        "nano": 897856300
       }
     },
     "doctor": {
@@ -199,64 +53,8 @@
       "name": "Dr. Kieran Sim",
       "password": "securedoc",
       "email": "kieransim@clinic.com",
-      "gender": "Male"
-    },
-    "appointment_status": "PENDING"
-  },
-  {
-    "patient": {
-      "medical_history": "No significant medical history.",
-      "allergies": "",
-      "date_of_birth": {
-        "date": {
-          "year": 1996,
-          "month": 9,
-          "day": 10
-        },
-        "time": {
-          "hour": 2,
-          "minute": 19,
-          "second": 5,
-          "nano": 290448100
-        }
-      },
-      "patient_consent": {
-        "consent_given": false,
-        "consent_terms": ""
-      },
-      "address": "Blk 123, Ang Mo Kio Ave 1, #01-1234, Singapore 560123",
-      "next_of_kin_name": "Mary Tan",
-      "id": "P001",
-      "login_name": "lucaslee",
-      "name": "Lucas Lee",
-      "password": "password123",
-      "email": "lucas.lee@example.com",
-      "gender": "Male"
-    },
-    "reason": "Vertigo",
-    "appointment_time": {
-      "date": {
-        "year": 2025,
-        "month": 2,
-        "day": 10
-      },
-      "time": {
-        "hour": 11,
-        "minute": 3,
-        "second": 5,
-        "nano": 321993300
-      }
-    },
-    "doctor": {
-      "specialisation": "GP",
-      "type": "GENERAL_PRACTICE",
-      "license_number": "L12345",
-      "id": "D001",
-      "login_name": "limtzekai",
-      "name": "Dr. Lim Tze Kai",
-      "password": "docpass",
-      "email": "limtzekai@clinic.com",
-      "gender": "Male"
+      "gender": "Male",
+      "phone_number": "8345 6789"
     },
     "appointment_status": "PENDING"
   },
@@ -268,13 +66,13 @@
         "date": {
           "year": 1992,
           "month": 9,
-          "day": 28
+          "day": 30
         },
         "time": {
-          "hour": 2,
-          "minute": 19,
-          "second": 5,
-          "nano": 290448100
+          "hour": 17,
+          "minute": 54,
+          "second": 41,
+          "nano": 869782900
         }
       },
       "patient_consent": {
@@ -288,102 +86,36 @@
       "name": "Kaiser Yee",
       "password": "securepass",
       "email": "kaiser.yee@example.com",
-      "gender": "Female"
+      "gender": "Female",
+      "phone_number": "9012 3456"
     },
-    "reason": "HIV",
-    "history": "HIV",
+    "reason": "Flu",
     "appointment_time": {
       "date": {
         "year": 2025,
         "month": 2,
-        "day": 10
+        "day": 13
       },
       "time": {
-        "hour": 12,
-        "minute": 0,
-        "second": 0,
-        "nano": 0
+        "hour": 1,
+        "minute": 14,
+        "second": 41,
+        "nano": 897856300
       }
     },
-    "appointment_status": "COMPLETED",
-    "session": {
-      "id": "f8f8fd3c-562f-4564-8ebd-9bce8842e83a",
-      "start_time": {
-        "date": {
-          "year": 2025,
-          "month": 2,
-          "day": 10
-        },
-        "time": {
-          "hour": 6,
-          "minute": 15,
-          "second": 1,
-          "nano": 33351100
-        }
-      },
-      "end_time": {
-        "date": {
-          "year": 2025,
-          "month": 2,
-          "day": 10
-        },
-        "time": {
-          "hour": 6,
-          "minute": 16,
-          "second": 31,
-          "nano": 264059500
-        }
-      },
-      "zoom_link": "https://us05web.zoom.us/j/89520707688?pwd\u003dsP9nVaJ5bpbti0HygUn8DDPwtEqC9M.1",
-      "session_status": "COMPLETED"
+    "doctor": {
+      "specialisation": "Cardiology",
+      "type": "SPECIALIST",
+      "license_number": "L67890",
+      "id": "D002",
+      "login_name": "kieransim",
+      "name": "Dr. Kieran Sim",
+      "password": "securedoc",
+      "email": "kieransim@clinic.com",
+      "gender": "Male",
+      "phone_number": "8345 6789"
     },
-    "doctor_notes": "patient states that he has HIV, i think chao keng",
-    "billing": {
-      "bill_amount": 0.0,
-      "billing_i_d": "bc3e0b94-e5a5-4133-830f-f90c4c72f6f1",
-      "is_paid": true,
-      "prescription": {
-        "prescription_i_d": "7b833a43-4e12-4e14-8be9-e2bf98816a68",
-        "medicines": [
-          {
-            "med_name": "HIV ENHANCEER",
-            "med_price": 0.0,
-            "med_quantity": 120000,
-            "med_dosage": "12 every minute"
-          }
-        ]
-      }
-    },
-    "mc": {
-      "id": "ab6b97bd-5828-4f1a-8ca3-d3f9492b2428",
-      "start_date": {
-        "date": {
-          "year": 2025,
-          "month": 2,
-          "day": 10
-        },
-        "time": {
-          "hour": 0,
-          "minute": 0,
-          "second": 0,
-          "nano": 0
-        }
-      },
-      "end_date": {
-        "date": {
-          "year": 2025,
-          "month": 2,
-          "day": 10
-        },
-        "time": {
-          "hour": 23,
-          "minute": 59,
-          "second": 0,
-          "nano": 0
-        }
-      },
-      "remarks": "unfit for duty due to HIV"
-    }
+    "appointment_status": "PENDING"
   },
   {
     "patient": {
@@ -393,13 +125,13 @@
         "date": {
           "year": 2000,
           "month": 11,
-          "day": 25
+          "day": 27
         },
         "time": {
-          "hour": 2,
-          "minute": 19,
-          "second": 5,
-          "nano": 290448100
+          "hour": 17,
+          "minute": 54,
+          "second": 41,
+          "nano": 869782900
         }
       },
       "patient_consent": {
@@ -413,89 +145,34 @@
       "name": "Annaqi Kun",
       "password": "strongpass",
       "email": "annaqi.kun@example.com",
-      "gender": "Female"
+      "gender": "Female",
+      "phone_number": "8765 4321"
     },
     "reason": "Vertigo",
     "appointment_time": {
       "date": {
         "year": 2025,
         "month": 2,
-        "day": 10
+        "day": 13
       },
       "time": {
-        "hour": 13,
-        "minute": 43,
-        "second": 5,
-        "nano": 321993300
+        "hour": 9,
+        "minute": 27,
+        "second": 41,
+        "nano": 897856300
       }
     },
     "doctor": {
-      "specialisation": "GP",
-      "type": "GENERAL_PRACTICE",
-      "license_number": "L12345",
-      "id": "D001",
-      "login_name": "limtzekai",
-      "name": "Dr. Lim Tze Kai",
-      "password": "docpass",
-      "email": "limtzekai@clinic.com",
-      "gender": "Male"
-    },
-    "appointment_status": "PENDING"
-  },
-  {
-    "patient": {
-      "medical_history": "History of asthma.",
-      "allergies": "Penicillin",
-      "date_of_birth": {
-        "date": {
-          "year": 1992,
-          "month": 9,
-          "day": 28
-        },
-        "time": {
-          "hour": 2,
-          "minute": 19,
-          "second": 5,
-          "nano": 290448100
-        }
-      },
-      "patient_consent": {
-        "consent_given": false,
-        "consent_terms": ""
-      },
-      "address": "Blk 456, Jurong West St 42, #02-5678, Singapore 640456",
-      "next_of_kin_name": "Peter Yee",
-      "id": "P002",
-      "login_name": "kaiseryee",
-      "name": "Kaiser Yee",
-      "password": "securepass",
-      "email": "kaiser.yee@example.com",
-      "gender": "Female"
-    },
-    "reason": "Cough",
-    "appointment_time": {
-      "date": {
-        "year": 2025,
-        "month": 2,
-        "day": 10
-      },
-      "time": {
-        "hour": 16,
-        "minute": 28,
-        "second": 5,
-        "nano": 321993300
-      }
-    },
-    "doctor": {
-      "specialisation": "GP",
-      "type": "GENERAL_PRACTICE",
-      "license_number": "L12345",
-      "id": "D001",
-      "login_name": "limtzekai",
-      "name": "Dr. Lim Tze Kai",
-      "password": "docpass",
-      "email": "limtzekai@clinic.com",
-      "gender": "Male"
+      "specialisation": "Cardiology",
+      "type": "SPECIALIST",
+      "license_number": "L67890",
+      "id": "D002",
+      "login_name": "kieransim",
+      "name": "Dr. Kieran Sim",
+      "password": "securedoc",
+      "email": "kieransim@clinic.com",
+      "gender": "Male",
+      "phone_number": "8345 6789"
     },
     "appointment_status": "PENDING"
   },
@@ -507,13 +184,13 @@
         "date": {
           "year": 1996,
           "month": 9,
-          "day": 10
+          "day": 12
         },
         "time": {
-          "hour": 2,
-          "minute": 19,
-          "second": 5,
-          "nano": 290448100
+          "hour": 17,
+          "minute": 54,
+          "second": 41,
+          "nano": 869782900
         }
       },
       "patient_consent": {
@@ -527,204 +204,152 @@
       "name": "Lucas Lee",
       "password": "password123",
       "email": "lucas.lee@example.com",
-      "gender": "Male"
+      "gender": "Male",
+      "phone_number": "8123 4567"
     },
-    "reason": "Flu",
+    "reason": "Vertigo",
     "appointment_time": {
       "date": {
         "year": 2025,
         "month": 2,
-        "day": 10
-      },
-      "time": {
-        "hour": 18,
-        "minute": 47,
-        "second": 5,
-        "nano": 321993300
-      }
-    },
-    "doctor": {
-      "specialisation": "GP",
-      "type": "GENERAL_PRACTICE",
-      "license_number": "L12345",
-      "id": "D001",
-      "login_name": "limtzekai",
-      "name": "Dr. Lim Tze Kai",
-      "password": "docpass",
-      "email": "limtzekai@clinic.com",
-      "gender": "Male"
-    },
-    "appointment_status": "PENDING"
-  },
-  {
-    "patient": {
-      "medical_history": "History of asthma.",
-      "allergies": "Penicillin",
-      "date_of_birth": {
-        "date": {
-          "year": 1992,
-          "month": 9,
-          "day": 28
-        },
-        "time": {
-          "hour": 2,
-          "minute": 19,
-          "second": 5,
-          "nano": 290448100
-        }
-      },
-      "patient_consent": {
-        "consent_given": false,
-        "consent_terms": ""
-      },
-      "address": "Blk 456, Jurong West St 42, #02-5678, Singapore 640456",
-      "next_of_kin_name": "Peter Yee",
-      "id": "P002",
-      "login_name": "kaiseryee",
-      "name": "Kaiser Yee",
-      "password": "securepass",
-      "email": "kaiser.yee@example.com",
-      "gender": "Female"
-    },
-    "reason": "Flu",
-    "history": "no",
-    "appointment_time": {
-      "date": {
-        "year": 2025,
-        "month": 2,
-        "day": 11
-      },
-      "time": {
-        "hour": 16,
-        "minute": 0,
-        "second": 0,
-        "nano": 0
-      }
-    },
-    "appointment_status": "COMPLETED",
-    "session": {
-      "id": "3d9465fc-8760-4549-acda-fff3ac1a7432",
-      "start_time": {
-        "date": {
-          "year": 2025,
-          "month": 2,
-          "day": 10
-        },
-        "time": {
-          "hour": 17,
-          "minute": 51,
-          "second": 18,
-          "nano": 678448100
-        }
-      },
-      "end_time": {
-        "date": {
-          "year": 2025,
-          "month": 2,
-          "day": 10
-        },
-        "time": {
-          "hour": 17,
-          "minute": 52,
-          "second": 14,
-          "nano": 37102300
-        }
-      },
-      "zoom_link": "https://us05web.zoom.us/j/83133654146?pwd\u003dDVBPtb70I6Ji2BLXMWaTYUiMYqN0M4.1",
-      "session_status": "COMPLETED"
-    },
-    "doctor_notes": "Patient states he has flu, given 1 day mc",
-    "billing": {
-      "bill_amount": 0.0,
-      "billing_i_d": "d1ed4cd5-85cd-4d08-89b0-e61df4dce44f",
-      "is_paid": false,
-      "prescription": {
-        "prescription_i_d": "9807f207-56cf-4f5f-b1fb-ad242d2d3ab1",
-        "medicines": [
-          {
-            "med_name": "ACETOMINOPHEN",
-            "med_price": 0.0,
-            "med_quantity": 25,
-            "med_dosage": "2 times a day, after meal"
-          }
-        ]
-      }
-    },
-    "mc": {
-      "id": "4d032b3d-1f85-4418-8f69-15cc5915f961",
-      "start_date": {
-        "date": {
-          "year": 2025,
-          "month": 2,
-          "day": 10
-        },
-        "time": {
-          "hour": 0,
-          "minute": 0,
-          "second": 0,
-          "nano": 0
-        }
-      },
-      "end_date": {
-        "date": {
-          "year": 2025,
-          "month": 2,
-          "day": 10
-        },
-        "time": {
-          "hour": 23,
-          "minute": 59,
-          "second": 0,
-          "nano": 0
-        }
-      },
-      "remarks": ""
-    }
-  },
-  {
-    "patient": {
-      "medical_history": "No significant medical history.",
-      "allergies": "",
-      "date_of_birth": {
-        "date": {
-          "year": 1996,
-          "month": 9,
-          "day": 10
-        },
-        "time": {
-          "hour": 2,
-          "minute": 19,
-          "second": 5,
-          "nano": 290448100
-        }
-      },
-      "patient_consent": {
-        "consent_given": false,
-        "consent_terms": ""
-      },
-      "address": "Blk 123, Ang Mo Kio Ave 1, #01-1234, Singapore 560123",
-      "next_of_kin_name": "Mary Tan",
-      "id": "P001",
-      "login_name": "lucaslee",
-      "name": "Lucas Lee",
-      "password": "password123",
-      "email": "lucas.lee@example.com",
-      "gender": "Male"
-    },
-    "reason": "sick",
-    "history": "no",
-    "appointment_time": {
-      "date": {
-        "year": 2025,
-        "month": 12,
         "day": 12
       },
       "time": {
-        "hour": 8,
-        "minute": 0,
-        "second": 0,
-        "nano": 0
+        "hour": 23,
+        "minute": 49,
+        "second": 41,
+        "nano": 897856300
       }
+    },
+    "doctor": {
+      "specialisation": "Cardiology",
+      "type": "SPECIALIST",
+      "license_number": "L67890",
+      "id": "D002",
+      "login_name": "kieransim",
+      "name": "Dr. Kieran Sim",
+      "password": "securedoc",
+      "email": "kieransim@clinic.com",
+      "gender": "Male",
+      "phone_number": "8345 6789"
+    },
+    "appointment_status": "PENDING"
+  },
+  {
+    "patient": {
+      "medical_history": "History of asthma.",
+      "allergies": "Penicillin",
+      "date_of_birth": {
+        "date": {
+          "year": 1992,
+          "month": 9,
+          "day": 30
+        },
+        "time": {
+          "hour": 17,
+          "minute": 54,
+          "second": 41,
+          "nano": 869782900
+        }
+      },
+      "patient_consent": {
+        "consent_given": false,
+        "consent_terms": ""
+      },
+      "address": "Blk 456, Jurong West St 42, #02-5678, Singapore 640456",
+      "next_of_kin_name": "Peter Yee",
+      "id": "P002",
+      "login_name": "kaiseryee",
+      "name": "Kaiser Yee",
+      "password": "securepass",
+      "email": "kaiser.yee@example.com",
+      "gender": "Female",
+      "phone_number": "9012 3456"
+    },
+    "reason": "Vertigo",
+    "appointment_time": {
+      "date": {
+        "year": 2025,
+        "month": 2,
+        "day": 13
+      },
+      "time": {
+        "hour": 16,
+        "minute": 59,
+        "second": 41,
+        "nano": 897856300
+      }
+    },
+    "doctor": {
+      "specialisation": "Cardiology",
+      "type": "SPECIALIST",
+      "license_number": "L67890",
+      "id": "D002",
+      "login_name": "kieransim",
+      "name": "Dr. Kieran Sim",
+      "password": "securedoc",
+      "email": "kieransim@clinic.com",
+      "gender": "Male",
+      "phone_number": "8345 6789"
+    },
+    "appointment_status": "PENDING"
+  },
+  {
+    "patient": {
+      "medical_history": "Allergic to peanuts.",
+      "allergies": "Peanuts",
+      "date_of_birth": {
+        "date": {
+          "year": 2000,
+          "month": 11,
+          "day": 27
+        },
+        "time": {
+          "hour": 17,
+          "minute": 54,
+          "second": 41,
+          "nano": 869782900
+        }
+      },
+      "patient_consent": {
+        "consent_given": false,
+        "consent_terms": ""
+      },
+      "address": "Blk 789, Tampines St 81, #03-9012, Singapore 520789",
+      "next_of_kin_name": "Siti Kun",
+      "id": "P003",
+      "login_name": "annaqi",
+      "name": "Annaqi Kun",
+      "password": "strongpass",
+      "email": "annaqi.kun@example.com",
+      "gender": "Female",
+      "phone_number": "8765 4321"
+    },
+    "reason": "Flu",
+    "appointment_time": {
+      "date": {
+        "year": 2025,
+        "month": 2,
+        "day": 13
+      },
+      "time": {
+        "hour": 12,
+        "minute": 56,
+        "second": 41,
+        "nano": 897856300
+      }
+    },
+    "doctor": {
+      "specialisation": "Cardiology",
+      "type": "SPECIALIST",
+      "license_number": "L67890",
+      "id": "D002",
+      "login_name": "kieransim",
+      "name": "Dr. Kieran Sim",
+      "password": "securedoc",
+      "email": "kieransim@clinic.com",
+      "gender": "Male",
+      "phone_number": "8345 6789"
     },
     "appointment_status": "PENDING"
   }

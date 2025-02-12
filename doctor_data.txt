@@ -8,7 +8,8 @@
     "name": "Dr. Lim Tze Kai",
     "password": "docpass",
     "email": "limtzekai@clinic.com",
-    "gender": "Male"
+    "gender": "Male",
+    "phone_number": "9876 5432"
   },
   {
     "specialisation": "Cardiology",
@@ -19,6 +20,7 @@
     "name": "Dr. Kieran Sim",
     "password": "securedoc",
     "email": "kieransim@clinic.com",
-    "gender": "Male"
+    "gender": "Male",
+    "phone_number": "8345 6789"
   }
 ]

@@ -231,27 +231,27 @@ public class UserController {
         dummyPatients.add(new Patient(
                 "P001", "lucaslee", "Lucas Lee", "password123", "lucas.lee@example.com", "Male",
                 "No significant medical history.", "", LocalDateTime.now().minusYears(28).minusMonths(5),
-                "Blk 123, Ang Mo Kio Ave 1, #01-1234, Singapore 560123", "Mary Tan"
+                "Blk 123, Ang Mo Kio Ave 1, #01-1234, Singapore 560123", "Mary Tan", "8123 4567"
         ));
         dummyPatients.add(new Patient(
                 "P002", "kaiseryee", "Kaiser Yee", "securepass", "kaiser.yee@example.com", "Female",
                 "History of asthma.", "Penicillin", LocalDateTime.now().minusYears(32).minusMonths(4).minusDays(12),
-                "Blk 456, Jurong West St 42, #02-5678, Singapore 640456", "Peter Yee"
+                "Blk 456, Jurong West St 42, #02-5678, Singapore 640456", "Peter Yee", "9012 3456"
         ));
         dummyPatients.add(new Patient(
                 "P003", "annaqi", "Annaqi Kun", "strongpass", "annaqi.kun@example.com", "Female",
                 "Allergic to peanuts.", "Peanuts", LocalDateTime.now().minusYears(24).minusMonths(2).minusDays(15),
-                "Blk 789, Tampines St 81, #03-9012, Singapore 520789", "Siti Kun"
+                "Blk 789, Tampines St 81, #03-9012, Singapore 520789", "Siti Kun", "8765 4321"
         ));
 
         List<Doctor> dummyDoctors = new ArrayList<>();
         dummyDoctors.add(new Doctor(
                 "D001", "limtzekai", "Dr. Lim Tze Kai", "docpass", "limtzekai@clinic.com", "Male",
-                "GP", DoctorType.GENERAL_PRACTICE, "L12345"
+                "GP", DoctorType.GENERAL_PRACTICE, "L12345", "9876 5432"
         ));
         dummyDoctors.add(new Doctor(
                 "D002", "kieransim", "Dr. Kieran Sim", "securedoc", "kieransim@clinic.com", "Male",
-                "Cardiology", DoctorType.SPECIALIST, "L67890"
+                "Cardiology", DoctorType.SPECIALIST, "L67890", "8345 6789"
         ));
 
         // Save dummy users to files
