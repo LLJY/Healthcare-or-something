@@ -7,6 +7,10 @@ import org.lucas.controllers.AppointmentController;
 import org.lucas.controllers.UserController;
 import org.lucas.pages.LoginPage;
 import org.lucas.pages.doctor.*;
+import org.lucas.util.LocalDateTimeTypeAdapter;
+
+import java.time.LocalDateTime;
+
 /**
  * Our project is far too small to warrant any complex Dependency Injection.
  * So compromise by just using static instances.
@@ -24,8 +28,15 @@ public class Globals {
     public static AppointmentController appointmentController = new AppointmentController();
     public static UserController userController = new UserController();
 
-    public static Gson gson = new GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES).create();
+    public static Gson gson = new GsonBuilder()
+            .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
+            .registerTypeAdapter(LocalDateTime.class, new LocalDateTimeTypeAdapter())
+            .create();
     // used strictly for debugging, beats printOutputData for POJO classes, lol
-    public static Gson gsonPrettyPrint = new GsonBuilder().setPrettyPrinting().setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES).create();
+    public static Gson gsonPrettyPrint = new GsonBuilder()
+            .setPrettyPrinting()
+            .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
+            .registerTypeAdapter(LocalDateTime.class, new LocalDateTimeTypeAdapter())
+            .create();
 
 }
