@@ -60,7 +60,7 @@ public class TeleconsultPage extends UiBase {
             refreshUi();
         });
 
-        lv.attachUserInput("Remove Prescription", str -> {
+        lv.attachUserInput("Remove Prescription\n", str -> {
             int selectedIndex = selectMedicineIndexPrompt();
             if(selectedIndex == -1){
                 refreshUi();
