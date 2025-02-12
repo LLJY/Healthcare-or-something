@@ -6,6 +6,7 @@ import org.lucas.models.Patient;
 import org.lucas.models.User;
 import org.lucas.models.enums.DoctorType;
 import org.lucas.models.enums.UserType;
+import org.lucas.util.JarLocation;
 import org.lucas.util.Pair;
 import org.lucas.util.Util;
 
@@ -13,6 +14,7 @@ import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
 import java.io.*;
 import java.lang.reflect.Type;
+import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.security.SecureRandom;
@@ -54,7 +56,16 @@ public class UserController {
         users.clear();
         //first load the patients
         StringBuilder sb = new StringBuilder();
-        try(BufferedReader br = Files.newBufferedReader(Paths.get(patientFileName))){
+
+        // get the jar location
+        String basePath = "";
+        try {
+            basePath = JarLocation.getJarDirectory();
+        } catch (IOException | URISyntaxException e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+        try (BufferedReader br = Files.newBufferedReader(Paths.get(basePath, patientFileName))) {
             String line;
             while((line = br.readLine()) != null){
                 sb.append(line);
@@ -67,7 +78,14 @@ public class UserController {
 
         // then load the doctors
         sb = new StringBuilder();
-        try(BufferedReader br = Files.newBufferedReader(Paths.get(doctorFileName))){
+        String docBasePath = "";
+        try {
+            basePath = JarLocation.getJarDirectory();
+        } catch (IOException | URISyntaxException e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+        try (BufferedReader br = Files.newBufferedReader(Paths.get(docBasePath, doctorFileName))) {
             String line;
 
             while((line = br.readLine()) != null){
@@ -122,7 +140,17 @@ public class UserController {
      * @throws IllegalArgumentException if the file name is null or empty.
      */
     private <T extends User> void saveUsersToFile(List<T> users, String fileName) {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
+        String basePath = "";
+        // get the jar location
+        try {
+            basePath = JarLocation.getJarDirectory();
+        } catch (IOException | URISyntaxException e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+        String path = Paths.get(basePath, fileName).toString();
+
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(path))) {
             String json = Globals.gsonPrettyPrint.toJson(users);
             writer.write(json);
             System.out.println("Users saved to " + fileName);

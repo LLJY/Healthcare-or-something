@@ -3,6 +3,7 @@ import com.google.gson.reflect.TypeToken;
 import org.lucas.Globals;
 import org.lucas.models.*;
 import org.lucas.models.enums.AppointmentStatus;
+import org.lucas.util.JarLocation;
 import org.lucas.util.Pair;
 import org.lucas.util.Util;
 
@@ -11,6 +12,7 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Type;
+import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.time.LocalDateTime;
@@ -143,17 +145,27 @@ public class AppointmentController {
      * Note: This method assumes that the file format is JSON and that it correctly represents a list of Appointment objects.
      * Ensure the file path and format are correct to prevent runtime errors or data corruption.
      */
-    private void loadAppointmentFromFile(){
+    private void loadAppointmentFromFile() {
         appointments.clear();
         StringBuilder sb = new StringBuilder();
-        try(BufferedReader br = Files.newBufferedReader(Paths.get(fileName))){
+        String basePath = "";
+
+        // get the jar location
+        try {
+            basePath = JarLocation.getJarDirectory();
+        } catch (IOException | URISyntaxException e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+        try (BufferedReader br = Files.newBufferedReader(Paths.get(basePath, fileName))) {
             String line;
-            while((line = br.readLine()) != null){
+            while ((line = br.readLine()) != null) {
                 sb.append(line);
             }
-            Type listType = new TypeToken<List<Appointment>>() {}.getType();
+            Type listType = new TypeToken<List<Appointment>>() {
+            }.getType();
             appointments = Util.fromJsonString(sb.toString(), listType);
-        }catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
@@ -170,7 +182,17 @@ public class AppointmentController {
      * it's important for users of the method to be aware that an I/O exception could indicate a failure to save data properly.
      */
     public void saveAppointmentsToFile() {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
+        String basePath = "";
+
+        // get the jar location
+        try {
+            basePath = JarLocation.getJarDirectory();
+        } catch (IOException | URISyntaxException e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+        String path = Paths.get(basePath, fileName).toString();
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(path))) {
             String json = Globals.gsonPrettyPrint.toJson(appointments);
             writer.write(json);
             System.out.println("Appointments saved to " + fileName);
@@ -205,7 +227,6 @@ public class AppointmentController {
 
         if (consent == null) {
             System.out.println("No consent record found. Requesting patient consent...");
-            // TODO: Implement a method to request consent from patient
             return false;
         }
 

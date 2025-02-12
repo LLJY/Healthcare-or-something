@@ -3,6 +3,7 @@ package org.lucas.controllers;
 import com.google.gson.reflect.TypeToken;
 import org.lucas.Globals;
 import org.lucas.models.Medicine;
+import org.lucas.util.JarLocation;
 import org.lucas.util.Util;
 
 import java.io.BufferedReader;
@@ -10,6 +11,7 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Type;
+import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -77,7 +79,17 @@ public class MedicinesController {
     private static void loadMedicinesFromFile(){
         availableMedicines.clear();
         StringBuilder sb = new StringBuilder();
-        try(BufferedReader br = Files.newBufferedReader(Paths.get(fileName))){
+        String basePath = "";
+
+        // get the jar location
+        try {
+            basePath = JarLocation.getJarDirectory();
+        } catch (IOException | URISyntaxException e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+        System.out.println("Loading Medicines from " + Paths.get(basePath, fileName));
+        try (BufferedReader br = Files.newBufferedReader(Paths.get(basePath, fileName))) {
             String line;
             while((line = br.readLine()) != null){
                 sb.append(line);
@@ -96,7 +108,15 @@ public class MedicinesController {
      * If an IOException occurs during file writing, the stack trace is printed to the error stream.
      */
     public static void saveMedicinesToFile() {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
+        String basePath = "";
+        try {
+            basePath = JarLocation.getJarDirectory();
+        } catch (IOException | URISyntaxException e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+        String path = Paths.get(basePath, fileName).toString();
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(path))) {
             String json = Globals.gsonPrettyPrint.toJson(availableMedicines);
             writer.write(json);
             System.out.println("Medicines saved to " + fileName);
